@@ -8,9 +8,10 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Online Cinema</title>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="shortcut icon" type="image/icon" href="assets/images/favicon.ico" />
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -23,7 +24,8 @@
     <header id="header" class="">
         <div class="top-header clearfix">
             <div class="wrapper">
-                <div class="left-top-header btn-title">
+
+                <div id="date" class="left-top-header btn-title">
                     Monday, November 28, 2016
                 </div>
                 <div class="right-top-header">
@@ -76,11 +78,16 @@
     <div class="wrapper content-wrapper clearfix">
     </div>
     <footer>
+
     </footer>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script>
+        var d = new Date();
+        document.getElementById("date").innerHTML = d.toDateString();
+    </script>
 </body>
 
 </html>
