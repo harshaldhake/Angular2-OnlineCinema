@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Online Cinema</title>
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <header id="header" class="">
+        <div class="top-header clearfix">
+            <div class="wrapper">
+                <div class="left-top-header btn-title">
+                    Monday, November 28, 2016
+                </div>
+                <div class="right-top-header">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper main-header">
+            <div class="banner">
+                <div class="site-branding clearfix">
+                    <div class="site-logo float-left">
+                        <a href="http://lichchieuphimcgv.com/" class="custom-logo-link" rel="home" itemprop="url"><img width="290" height="59" src="http://lichchieuphimcgv.com/wp-content/uploads/2016/07/cropped-logo-lichchieuphimcgv.png" class="custom-logo" alt="cropped-logo-lichchieuphimcgv.png" itemprop="logo"></a>
+                    </div>
+                    <!--site-logo-->
+                    <!--supermag-header-id-display-opt-->
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="main-menu">
+                <nav id="site-navigation" class="main-navigation clearfix" role="navigation">
+                    <div class="header-main-menu clearfix">
+                        <div class="home-icon front_page_on">
+                            <a href="index.html" title="Lịch chiếu phim CGV"><i class="fa fa-home"></i></a>
+                        </div>
+                        <div class="acmethemes-nav">
+                            <ul id="menu-menu-1" class="menu">
+                                <li id="menu-item-1" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-26"><a href="">Phim</a></li>
+                                <li id="menu-item-2" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27"><a href="">Rạp</a></li>
+                                <li id="menu-item-3" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-25"><a href="">Lịch chiếu</a></li>
+                                <li id="menu-item-4" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-59"><a href="page4.html">Hướng dẫn</a></li>
+                            </ul>
+                        </div>
+                        <div class="search-block">
+                            <form action="http://lichchieuphimcgv.com" class="searchform" id="searchform" method="get" role="search">
+                                <div>
+                                    <label for="menu-search" class="screen-reader-text"></label>
+                                    <input type="text" placeholder="Search" id="menu-search" name="s" value="">
+                                    <button class="fa fa-search" type="submit" id="searchsubmit"></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="container wrapper content-wrapper clearfix" style="height: 100%;">
+        <div id="map" style="height: 500px"></div>
+    </div>
+    <footer>
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        var markers = [{
+            "title": 'Aksa Beach',
+            "lat": '19.1759668',
+            "lng": '72.79504659999998',
+            "description": 'Aksa Beach is a popular beach and a vacation spot in Aksa village at Malad, Mumbai.'
+        }, {
+            "title": 'Juhu Beach',
+            "lat": '19.0883595',
+            "lng": '72.82652380000002',
+            "description": 'Juhu Beach is one of favourite tourist attractions situated in Mumbai.'
+        }, {
+            "title": 'Girgaum Beach',
+            "lat": '18.9542149',
+            "lng": '72.81203529999993',
+            "description": 'Girgaum Beach commonly known as just Chaupati is one of the most famous public beaches in Mumbai.'
+        }, {
+            "title": 'Jijamata Udyan',
+            "lat": '18.979006',
+            "lng": '72.83388300000001',
+            "description": 'Jijamata Udyan is situated near Byculla station is famous as Mumbai (Bombay) Zoo.'
+        }, {
+            "title": 'Sanjay Gandhi National Park',
+            "lat": '19.2147067',
+            "lng": '72.91062020000004',
+            "description": 'Sanjay Gandhi National Park is a large protected area in the northern part of Mumbai city.'
+        }];
+        window.onload = function() {
+            LoadMap();
+        }
+
+        function LoadMap() {
+            var mapOptions = {
+                center: new google.maps.LatLng(markers[0].lat, markers[0].lng),
+                zoom: 10,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+            //Create and open InfoWindow.
+            var infoWindow = new google.maps.InfoWindow();
+
+            //icon cinema 
+            var markerImage = 'images/galaxy.png';
+
+            for (var i = 0; i < markers.length; i++) {
+                var data = markers[i];
+                var myLatlng = new google.maps.LatLng(data.lat, data.lng);
+                var marker = new google.maps.Marker({
+                    position: myLatlng,
+                    map: map,
+                    title: data.title,
+                    icon: markerImage
+                });
+
+                //Attach click event to the marker.
+                (function(marker, data) {
+                    google.maps.event.addListener(marker, "click", function(e) {
+                        //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
+                        infoWindow.setContent("<div style = 'width:200px;min-height:40px'>" + data.description + "</div>");
+                        infoWindow.open(map, marker);
+                    });
+                })(marker, data);
+            }
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDEzb2O2TWLG-SAcv5XU1YkvzHWDy0eTQ" type="text/javascript"></script>
+</body>
+
+</html>
