@@ -1,0 +1,185 @@
+
+#LI_1 {
+  box-sizing: border-box;
+  color: rgb(255, 255, 255);
+  float: left;
+  height: 366px;
+  text-size-adjust: 100%;
+  width: 225.203px;
+  column-rule-color: rgb(255, 255, 255);
+  perspective-origin: 112.594px 183px;
+  transform-origin: 112.594px 183px;
+  border: 0px none rgb(255, 255, 255);
+  font: normal normal normal normal 14px / 14px Roboto, Arial, sans-serif;
+  list-style: none outside none;
+  margin: 10px 9.78125px;
+  outline: rgb(255, 255, 255) none 0px;
+}
+
+/*#LI_1*/
+
+#A_2 {
+  bottom: 0;
+  box-sizing: border-box;
+  color: rgb(255, 255, 255);
+  display: block;
+  height: 338px;
+  left: 0;
+  position: relative;
+  right: 0;
+  text-align: left;
+  text-decoration: none;
+  text-size-adjust: 100%;
+  top: 0px;
+  width: 225.203px;
+  column-rule-color: rgb(255, 255, 255);
+  perspective-origin: 112.594px 169px;
+  transform-origin: 112.594px 169px;
+  border: 0px none rgb(255, 255, 255);
+  font: normal normal normal normal 14px / 14px Roboto, Arial, sans-serif;
+  list-style: none outside none;
+  outline: rgb(255, 255, 255) none 0px;
+  overflow: hidden;
+  transition: all 0.3s ease 0s;
+}
+
+/*#A_2*/
+
+#IMG_3 {
+  box-sizing: border-box;
+  color: rgb(255, 255, 255);
+  height: 337.797px;
+  max-width: 100%;
+  min-width: 100%;
+  text-align: left;
+  text-size-adjust: 100%;
+  vertical-align: middle;
+  width: 225.203px;
+  column-rule-color: rgb(255, 255, 255);
+  perspective-origin: 112.594px 168.891px;
+  transform-origin: 112.594px 168.891px;
+  border: 0px none rgb(255, 255, 255);
+  font: normal normal normal normal 14px / 14px Roboto, Arial, sans-serif;
+  list-style: none outside none;
+  outline: rgb(255, 255, 255) none 0px;
+  transition: all 1s ease 0s;
+}
+
+/*#IMG_3*/
+
+#SPAN_4 {
+  bottom: 12px;
+  box-sizing: border-box;
+  color: rgb(255, 255, 255);
+  display: block;
+  height: 21px;
+  left: 10px;
+  position: absolute;
+  right: 10px;
+  text-align: left;
+  text-size-adjust: 100%;
+  top: 305px;
+  width: 205.203px;
+  column-rule-color: rgb(255, 255, 255);
+  perspective-origin: 102.594px 10.5px;
+  transform-origin: 102.594px 10.5px;
+  border: 0 none rgb(255, 255, 255);
+  font: normal normal normal normal 14px / 14px Roboto, Arial, sans-serif;
+  list-style: none outside none;
+  outline: rgb(255, 255, 255) none 0px;
+}
+
+/*#SPAN_4*/
+
+#SPAN_5 {
+  bottom: 0px;
+  box-sizing: border-box;
+  color: rgb(255, 255, 255);
+  display: block;
+  float: left;
+  height: 21px;
+  left: 0px;
+  position: relative;
+  right: 0px;
+  text-align: left;
+  text-indent: -9999px;
+  text-size-adjust: 100%;
+  top: 0px;
+  width: 30px;
+  column-rule-color: rgb(255, 255, 255);
+  perspective-origin: 15px 10.5px;
+  transform-origin: 15px 10.5px;
+  background: rgba(0, 0, 0, 0) url("https://www.galaxycine.vn/asset/default/images/icon-16plus.png") no-repeat scroll 0% 0% / auto padding-box border-box;
+  border: 0px none rgb(255, 255, 255);
+  border-radius: 5px 5px 5px 5px;
+  font: normal normal 600 normal 14px / 14px Roboto, Arial, sans-serif;
+  list-style: none outside none;
+  margin: 0px 5px 0px 0px;
+  outline: rgb(255, 255, 255) none 0px;
+  padding: 7px;
+}
+
+/*#SPAN_5*/
+
+#DIV_6 {
+  box-sizing: border-box;
+  color: rgb(255, 255, 255);
+  height: 18px;
+  text-align: center;
+  text-size-adjust: 100%;
+  width: 225.203px;
+  column-rule-color: rgb(255, 255, 255);
+  perspective-origin: 112.594px 9px;
+  transform-origin: 112.594px 9px;
+  border: 0px none rgb(255, 255, 255);
+  font: normal normal normal normal 14px / 14px Roboto, Arial, sans-serif;
+  list-style: none outside none;
+  margin: 10px 0px 0px;
+  outline: rgb(255, 255, 255) none 0px;
+}
+
+/*#DIV_6*/
+
+#H4_7 {
+  box-sizing: border-box;
+  color: rgb(0, 0, 0);
+  height: 18px;
+  max-height: 69.3px;
+  text-align: center;
+  text-size-adjust: 100%;
+  width: 225.203px;
+  column-rule-color: rgb(255, 255, 255);
+  perspective-origin: 112.594px 9px;
+  transform-origin: 112.594px 9px;
+  border: 0 none rgb(255, 255, 255);
+  font: normal normal normal normal 15.4px / 18.48px Roboto, Arial, sans-serif;
+  list-style: none outside none;
+  margin: 0;
+  outline: rgb(255, 255, 255) none 0;
+  overflow: hidden;
+}
+
+#A_8 {
+  bottom: 0;
+  box-sizing: border-box;
+  color: black;
+  display: block;
+  height: 18px;
+  left: 0;
+  position: relative;
+  right: 0;
+  text-align: center;
+  text-decoration: none;
+  text-size-adjust: 100%;
+  top: 0;
+  width: 226px;
+  column-rule-color: rgb(255, 255, 255);
+  perspective-origin: 112.594px 9px;
+  transform-origin: 112.594px 9px;
+  border: 0px none rgb(255, 255, 255);
+  font: normal normal normal normal 15.4px / 18.48px Roboto, Arial, sans-serif;
+  list-style: none outside none;
+  outline: rgb(255, 255, 255) none 0;
+  overflow: hidden;
+  transition: all 0.3s ease 0s;
+}

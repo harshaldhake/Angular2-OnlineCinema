@@ -1,0 +1,35 @@
+@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #ecf0f1;
+  color: #fff;
+  font-family: sans-serif;
+  line-height: 1;
+}
+
+/* Nav Bar */
+.demo-layout-transparent .mdl-layout__header,
+.demo-layout-transparent .mdl-layout__drawer-button {
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+/* Header Text */
+.header-text {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 250px;
+  color: white;
+}
+
+/* Content Wrapper */
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
