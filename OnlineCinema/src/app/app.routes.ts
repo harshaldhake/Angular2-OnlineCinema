@@ -8,6 +8,7 @@ import {LoginComponent} from "./login/login.component";
 import {DirectionComponent} from "./direction/direction.component";
 import {PagenotfoundComponent} from "./pagenotfound/pagenotfound.component";
 import {HomeComponent} from "./home/home.component";
+import {ContactComponent} from './contact/contact.component';
 
 export const routes: Routes = [
   {
@@ -15,7 +16,7 @@ export const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'films',
+    path: 'film',
     component: FilmComponent,
     data: {title: 'DANH SÁCH PHIM'}
   },
@@ -25,9 +26,14 @@ export const routes: Routes = [
     data: {title: 'ĐĂNG NHẬP'}
   },
   {
-    path: 'help',
+    path: 'direction',
     component: DirectionComponent,
     data: {title: 'TÌM ĐƯỜNG'}
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
+    data: {title: 'LIÊN HỆ'}
   },
   {path: '**', component: PagenotfoundComponent}
 
