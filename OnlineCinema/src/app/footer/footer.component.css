@@ -1,4 +1,10 @@
 
+#footer {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: #fff;
+  background: #2e2e2e;
+}
 .footer {
   background: none repeat scroll 0 0 #2E2E2E;
   border-top: 5px solid #C52D2F;
@@ -47,12 +53,6 @@
   margin-bottom: 0;
 }
 
-#footer {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  color: #fff;
-  background: #2e2e2e;
-}
 
 #footer a {
   color: #fff;
