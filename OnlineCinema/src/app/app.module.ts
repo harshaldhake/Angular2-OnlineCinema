@@ -4,6 +4,7 @@ import {MaterialModule} from '@angular/material'
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {AppComponent} from './app.component';
+import {CommonModule} from '@angular/common';
 import {FilmService} from "./film.service";
 import {FilmComponent} from './film/film.component';
 import {FooterComponent} from './footer/footer.component';
@@ -15,7 +16,7 @@ import 'hammerjs';
 import {routing} from './app.routes';
 import {HomeComponent} from './home/home.component';
 import {AgmCoreModule} from "angular2-google-maps/core";
-
+import {ContactComponent} from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -26,18 +27,21 @@ import {AgmCoreModule} from "angular2-google-maps/core";
     DirectionComponent,
     LoginComponent,
     PagenotfoundComponent,
-    HomeComponent
+    HomeComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     FormsModule,
     HttpModule,
     MaterialModule.forRoot(),
     routing,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAQ_gSI5arqxa8TBUzVgn-6DqZUfcDED4c'
+      apiKey: ' AIzaSyDugX01C3UxUxXfe5FNAAFzynTYDYcansA'
     })
   ],
+
   providers: [
     {provide: 'film', useClass: FilmService},
     {provide: 'api', useValue: 'http://google.com'}],

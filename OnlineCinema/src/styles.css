@@ -1,15 +1,107 @@
-@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
-
 * {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+}
+.bg-container {
+  height: 100%;
+  width: 100%;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+
+  text-align: center;
+  align-items: center;
+
+  animation: bg-animation 5s infinite;
+  -webkit-animation: bg-animation 5s infinite;
+  -moz-animation: bg-animation 5s infinite;
+}
+
+h1 {
+  width: 100%;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes bg-animation {
+  0% {
+    background: #2A8C67;
+  }
+  25% {
+    background: #36594C;
+  }
+  50% {
+    background: #41D9A0;
+  }
+  75% {
+    background: #1E8C63;
+  }
+  99% {
+    background: #13402F;
+  }
+  100% {
+    background: #2A8C67;
+  }
+}
+
+@-webkit-keyframes bg-animation {
+  0% {
+    background: #2A8C67;
+  }
+  25% {
+    background: #36594C;
+  }
+  50% {
+    background: #41D9A0;
+  }
+  75% {
+    background: #1E8C63;
+  }
+  99% {
+    background: #13402F;
+  }
+  100% {
+    background: #2A8C67;
+  }
+}
+
+@-moz-keyframes bg-animation {
+  0% {
+    background: #2A8C67;
+  }
+  25% {
+    background: #36594C;
+  }
+  50% {
+    background: #41D9A0;
+  }
+  75% {
+    background: #1E8C63;
+  }
+  99% {
+    background: #13402F;
+  }
+  100% {
+    background: #2A8C67;
+  }
+}
+
 body {
   margin: 0;
-  background: #ecf0f1;
-  color: #fff;
-  font-family: sans-serif;
+  background: #36594C;
+  color: #777;
+  font-size: 12px;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
   line-height: 1;
 }
 
