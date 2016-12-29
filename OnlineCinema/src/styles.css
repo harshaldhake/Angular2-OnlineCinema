@@ -1,0 +1,30 @@
+@import "../node_modules/font-awesome/css/font-awesome.css";
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background-color: white;
+  font-family: 'Open Sans', sans-serif;
+  color: #4e4e4e;
+  line-height: 22px;
+  margin-bottom: 60px;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h2 {
+  font-size: 36px;
+  margin-top: 24px;
+  margin-bottom: 20px;
+}
+
+.lead {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
