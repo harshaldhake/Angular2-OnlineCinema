@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {NavigationMenu} from "../_interfaces/navigation-menu.interface";
 
 @Component({
   selector: 'app-menu',
@@ -7,7 +8,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  navMenus: NavMenu[] = [
+  navMenus: NavigationMenu[] = [
     {
       title: "Home",
       active: true,
@@ -48,9 +49,4 @@ export class MenuComponent implements OnInit {
     }
     this.navMenus[index].active = true;
   }
-}
-interface NavMenu {
-  title: string;
-  link: string;
-  active: boolean;
 }

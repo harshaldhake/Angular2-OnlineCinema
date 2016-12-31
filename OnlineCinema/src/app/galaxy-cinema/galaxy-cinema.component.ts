@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {FilmService} from "../film/film.service";
-import {Film} from "../film/film-list";
+import {FilmService} from "../_services/film.service";
+import {Film} from "../_interfaces/film.interface";
+import {TabMenu} from "../_interfaces/tab-menu";
 
 @Component({
   selector: 'app-cinema-galaxy',
@@ -45,27 +46,3 @@ export class GalaxyCinemaComponent implements OnInit {
     this.tabMenus[index].active = true;
   }
 }
-interface TabMenu {
-  title: string;
-  active: boolean;
-}
-/*
-
- export const CINEMAS: Cinema[] = [
- {
- title: "GALAXY",
- link: ,
- route: "cinema/galaxy"
- },
- {
- title: "CGV CINEMA",
- link: "https://www.cgv.vn",
- route: "cinema/cgv"
- },
- {
- title: "BHD STAR CINEPLEX",
- link: "http://bhdstar.vn/",
- route: "cinema/bhd"
- }
- ];
- */

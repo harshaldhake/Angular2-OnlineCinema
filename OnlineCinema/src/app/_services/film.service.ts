@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
-import {Film, FILMS} from "./film-list";
+import {Film} from "../_interfaces/film.interface";
+import {FILMS} from "../_interfaces/film-list";
 
 @Injectable()
 export class FilmService {
