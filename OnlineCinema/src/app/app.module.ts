@@ -17,6 +17,8 @@ import {AboutComponent} from './about/about.component';
 import {AgmCoreModule} from 'angular2-google-maps/core';
 import {GalaxyCinemaComponent} from './galaxy-cinema/galaxy-cinema.component';
 import {CgvCinemaComponent} from './cgv-cinema/cgv-cinema.component';
+import {FirebaseLoginModule} from "./_modules/firebase-login/firebase-login.module";
+import {AngularFire} from "angularfire2";
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,12 +39,13 @@ import {CgvCinemaComponent} from './cgv-cinema/cgv-cinema.component';
     FormsModule,
     HttpModule,
     routing,
+    FirebaseLoginModule,
     DropdownModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDugX01C3UxUxXfe5FNAAFzynTYDYcansA'
     })
   ],
-  providers: [],
+  providers: [AngularFire],
   bootstrap: [AppComponent]
 })
 export class AppModule {
