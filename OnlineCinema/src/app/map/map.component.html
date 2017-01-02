@@ -1,22 +1,122 @@
 <div class="container">
-
-  <sebm-google-map
-    [latitude]="lat"
-    [longitude]="lng"
-    [zoom]="zoom"
-    [disableDefaultUI]="false"
-    [streetViewControl]="false"
-    [zoomControl]="true">
-
-    <sebm-google-map-marker *ngFor="let c of cinemaMarkers; let i = index"
-                            [latitude]="c.lat"
-                            [longitude]="c.lng"
-                            [iconUrl]="c.iconUrl">
-
-      <sebm-google-map-info-window>
-        <strong>{{c.name}}</strong>
-      </sebm-google-map-info-window>
-    </sebm-google-map-marker>
-  </sebm-google-map>
+  <ul class="timeline">
+    <li>
+      <div class="timeline-badge">
+        <img src="../../assets/img/ic_calendar.svg">
+      </div>
+      <div class="timeline-panel">
+        <h3>Galaxy Nguyễn Du <span class="badge">42</span></h3>
+        <hr>
+        <div class="timeline-heading">
+          <h3 class="timeline-title">
+            <span class="label label-danger">  01/01/2017</span>
+          </h3>
+        </div>
+        <div class="timeline-body">
+          <h4>
+            <span class="label label-primary">09:30</span>
+            <span class="label label-primary">12:00</span>
+            <span class="label label-primary">13:30</span>
+            <span class="label label-primary">16:00</span>
+            <span class="label label-primary">17:30</span>
+            <span class="label label-primary">18:30</span>
+            <span class="label label-primary">20:45</span>
+          </h4>
+        </div>
+        <hr>
+        <div class="timeline-heading">
+          <h3 class="timeline-title">
+            <span class="label label-danger">  01/01/2017</span>
+          </h3>
+        </div>
+        <div class="timeline-body">
+          <h4>
+            <span class="label label-primary">09:30</span>
+            <span class="label label-primary">12:00</span>
+            <span class="label label-primary">13:30</span>
+            <span class="label label-primary">16:00</span>
+            <span class="label label-primary">17:30</span>
+            <span class="label label-primary">18:30</span>
+            <span class="label label-primary">20:45</span>
+          </h4>
+        </div>
+        <hr>
+        <div class="timeline-heading">
+          <h3 class="timeline-title">
+            <span class="label label-danger">  01/01/2017</span>
+          </h3>
+        </div>
+        <div class="timeline-body">
+          <h4>
+            <span class="label label-primary">09:30</span>
+            <span class="label label-primary">12:00</span>
+            <span class="label label-primary">13:30</span>
+            <span class="label label-primary">16:00</span>
+            <span class="label label-primary">17:30</span>
+            <span class="label label-primary">18:30</span>
+            <span class="label label-primary">20:45</span>
+          </h4>
+        </div>
+      </div>
+    </li>
+    <li class="timeline-inverted">
+      <div class="timeline-badge">
+        <img src="../../assets/img/ic_calendar.svg">
+      </div>
+      <div class="timeline-panel">
+        <h3>Galaxy Tân Bình <span class="badge">42</span></h3>
+        <hr>
+        <div class="timeline-heading">
+          <h3 class="timeline-title">
+            <span class="label label-danger">  01/01/2017</span>
+          </h3>
+        </div>
+        <div class="timeline-body">
+          <h4>
+            <span class="label label-primary">09:30</span>
+            <span class="label label-primary">12:00</span>
+            <span class="label label-primary">13:30</span>
+            <span class="label label-primary">16:00</span>
+            <span class="label label-primary">17:30</span>
+            <span class="label label-primary">18:30</span>
+            <span class="label label-primary">20:45</span>
+          </h4>
+        </div>
+        <hr>
+        <div class="timeline-heading">
+          <h3 class="timeline-title">
+            <span class="label label-danger">  01/01/2017</span>
+          </h3>
+        </div>
+        <div class="timeline-body">
+          <h4>
+            <span class="label label-primary">09:30</span>
+            <span class="label label-primary">12:00</span>
+            <span class="label label-primary">13:30</span>
+            <span class="label label-primary">16:00</span>
+            <span class="label label-primary">17:30</span>
+            <span class="label label-primary">18:30</span>
+            <span class="label label-primary">20:45</span>
+          </h4>
+        </div>
+        <hr>
+        <div class="timeline-heading">
+          <h3 class="timeline-title">
+            <span class="label label-danger">  01/01/2017</span>
+          </h3>
+        </div>
+        <div class="timeline-body">
+          <h4>
+            <span class="label label-primary">09:30</span>
+            <span class="label label-primary">12:00</span>
+            <span class="label label-primary">13:30</span>
+            <span class="label label-primary">16:00</span>
+            <span class="label label-primary">17:30</span>
+            <span class="label label-primary">18:30</span>
+            <span class="label label-primary">20:45</span>
+          </h4>
+        </div>
+      </div>
+    </li>
+  </ul>
 </div>
-

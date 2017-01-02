@@ -1,9 +1,5 @@
-<section id="portfolio">
+<section id="portfolio" style="margin-top: 24px">
   <div class="container">
-    <div class="center">
-      <h2>{{title}}</h2>
-    </div>
-
     <ul class="portfolio-filter text-center">
       <li>
         <a class="btn btn-default" *ngFor="let tabMenu of tabMenus; let idx = index" [class.active]="tabMenu.active"
@@ -12,19 +8,41 @@
         </a>
       </li>
     </ul>
-
     <div class="row">
       <div class="portfolio-items">
-        <div class="portfolio-item apps col-xs-12 col-sm-4 col-md-3" *ngFor="let film of films">
+        <div class="portfolio-item apps col-xs-12 col-sm-4 col-md-3"
+             *ngFor="let film of films">
           <div class="recent-work-wrap">
             <img class="img-responsive" src="{{film.img}}" width="300" height="450" alt="{{film.name}}">
             <div class="overlay">
               <div class="recent-work-inner">
                 <h3><a href="#">{{film.name}}</a></h3>
-                <a class="preview" href="{{film.img}}" rel="prettyPhoto"><i class="fa fa-eye"></i>
-                  View</a>
+                <a href="#" class="preview" data-toggle="modal" data-target="#basicModal">
+                  <i class="fa fa-eye"></i> Trailer
+                </a>
               </div>
             </div>
+          </div>
+          <h4 align="center"><span class="label label-danger">{{film.name}}</span></h4>
+          <h4 align="center">Khởi chiếu <span class="label label-success">{{film.release}}</span></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--// Model-->
+  <div class="modal fade" id="basicModal" tabindex="-1" role="dialog"
+       aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">Trailer <!--: {{filmDetail.name}}--></h4>
+        </div>
+        <div class="modal-body">
+          <div class="embed-responsive embed-responsive-4by3">
+            <!--<iframe class="embed-responsive-item" src="//www.youtube.com/embed/ePbKGoIGAXY"></iframe>-->
+            <!--<iframe class="embed-responsive-item" src="{{trailer}}"></iframe>-->
           </div>
         </div>
       </div>

@@ -4,6 +4,7 @@ export class Film {
               public genre: string,
               public duration: string,
               public release: string,
-              public img: string) {
+              public img: string,
+              public trailer: string) {
   }
 }

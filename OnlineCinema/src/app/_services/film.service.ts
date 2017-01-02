@@ -9,18 +9,30 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class FilmService {
 
-  private endpoint_url: string = "https://cinematest.njs.jelastic.vps-host.net/cinema/api/films";
+  private baseUrl: string = "http://cinematest.njs.jelastic.vps-host.net/cinema/api/films";
+  private filmByCinemaUrl = this.baseUrl + "/cinema/";
 
   constructor(private http: Http) {
 
   }
 
   getFilms(): Observable<Film[]> {
-    return this.http.get(this.endpoint_url)
+    return this.http.get(this.baseUrl)
       .map(this.extractData)
       .catch(this.handleError);
   }
 
+  getFilmsByCinema(cinema: string): Observable<Film[]> {
+    return this.http.get(this.filmByCinemaUrl + cinema)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  getFilmById(id: string): Observable<Film> {
+    return this.http.get(this.filmByCinemaUrl + id)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
   private extractData(res: Response) {
     let body = res.json().films;
     return body || {};

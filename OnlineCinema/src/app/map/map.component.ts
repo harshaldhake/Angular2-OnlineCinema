@@ -6,6 +6,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
+/*
 
   zoom: number = 17;
   lat: number = 10.773226;
@@ -27,6 +28,7 @@ export class MapComponent implements OnInit {
       iconUrl: "http://hkd.com.vn/ckfinder/userfiles/images/DU%20AN/26-3.png"
     }
   ];
+*/
 
   constructor() {
   }
@@ -35,6 +37,7 @@ export class MapComponent implements OnInit {
   }
 
 }
+/*
 export interface CinemaMarker {
   name: string;
   lat: number;
@@ -42,3 +45,4 @@ export interface CinemaMarker {
   draggable: boolean;
   iconUrl: string;
 }
+*/
