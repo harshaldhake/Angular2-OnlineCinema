@@ -11,27 +11,27 @@ export class MenuComponent implements OnInit {
 
   navMenus: NavigationMenu[] = [
     {
-      title: "Home",
+      title: "KHUYẾN MÃI",
       active: true,
       link: "/home"
     },
     {
-      title: "Films",
+      title: "DANH SÁCH PHIM",
       active: false,
       link: "/film"
     },
     {
-      title: "Map",
+      title: "BẢN ĐỒ",
       active: false,
       link: "/map"
     },
     {
-      title: "About Us",
+      title: "CHÚNG TÔI",
       active: false,
       link: "/about"
     },
     {
-      title: "Contact Us",
+      title: "LIÊN HỆ",
       active: false,
       link: "/contact"
     }
