@@ -1,8 +1,9 @@
-export interface Film {
-  id: number;
-  name: string;
-  genre: string;
-  duration: string;
-  release: string;
-  img: string;
+export class Film {
+  constructor(public id: string,
+              public name: string,
+              public genre: string,
+              public duration: string,
+              public release: string,
+              public img: string) {
+  }
 }

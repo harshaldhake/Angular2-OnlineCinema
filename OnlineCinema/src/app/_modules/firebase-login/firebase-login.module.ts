@@ -17,6 +17,10 @@ const firebaseConfig = {
   storageBucket: "onlinecinema-48f19.appspot.com",
   messagingSenderId: "520394171463"
 };
+const myFirebaseAuthConfig = {
+  provider: AuthProviders.Google,
+  method: AuthMethods.Popup
+};
 
 @NgModule({
   imports: [
@@ -24,10 +28,7 @@ const firebaseConfig = {
     FormsModule,
     HttpModule,
     CommonModule,
-    AngularFireModule.initializeApp(firebaseConfig, {
-      provider: AuthProviders.Google,
-      method: AuthMethods.Popup
-    })
+    AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig)
   ],
   exports: [
     BrowserModule,
