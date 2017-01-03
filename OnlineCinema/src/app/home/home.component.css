@@ -30,7 +30,7 @@
 
 .slider {
   overflow: hidden;
-  margin-bottom: 24px;
+  width: 100%;
 }
 
 .slider figure img {
@@ -41,7 +41,6 @@
 .slider figure {
   position: relative;
   width: 500%;
-  margin: 0;
   left: 0;
   text-align: left;
   font-size: 0;
@@ -55,7 +54,6 @@ h4.latest-text {
   text-transform: uppercase;
   margin-bottom: 1em;
   padding: 0.3em 0.5em;
-  margin-left: 3em;
 }
 
 @media (max-width: 1280px) {

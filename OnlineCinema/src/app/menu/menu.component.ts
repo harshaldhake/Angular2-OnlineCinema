@@ -13,7 +13,7 @@ export class MenuComponent implements OnInit {
     {
       title: "KHUYẾN MÃI",
       active: true,
-      link: "/home"
+      link: ""
     },
     {
       title: "DANH SÁCH PHIM",

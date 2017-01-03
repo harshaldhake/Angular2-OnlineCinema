@@ -1,33 +1,18 @@
 <div class="container">
-
   <h4 class="latest-text w3_latest_text">GALAXY CINEMA</h4>
-  <div class="container" class="slider">
+  <div class="slider">
     <figure>
-      <img src="http://bhdstar.vn/wp-content/uploads/2016/12/BHDStar-Sneakshow-ChayDiRoiTinh-1920x1080.png" alt>
-      <img src="http://bhdstar.vn/wp-content/uploads/2016/12/1920x1080_doibcoin-1.png" alt>
-      <img src="http://bhdstar.vn/wp-content/uploads/2016/12/1920x1080_doibcoin-1.png" alt>
-      <img src="http://bhdstar.vn/wp-content/uploads/2016/12/1920x1080_doibcoin-1.png" alt>
-      <img src="http://bhdstar.vn/wp-content/uploads/2016/12/1920x1080_doibcoin-1.png" alt>
-    </figure>
-  </div>
-  <h4 class="latest-text w3_latest_text">BHD STAR CINEPLEX</h4>
-  <div class="container" class="slider">
-    <figure>
-      <img src="http://bhdstar.vn/wp-content/uploads/2016/12/BHDStar-Sneakshow-ChayDiRoiTinh-1920x1080.png" alt>
-      <img src="http://bhdstar.vn/wp-content/uploads/2016/12/1920x1080_doibcoin-1.png" alt>
-      <img src="http://bhdstar.vn/wp-content/uploads/2016/12/1920x1080_doibcoin-1.png" alt>
-      <img src="http://bhdstar.vn/wp-content/uploads/2016/12/1920x1080_doibcoin-1.png" alt>
-      <img src="http://bhdstar.vn/wp-content/uploads/2016/12/1920x1080_doibcoin-1.png" alt>
+      <a *ngFor="let slideShow of galaxySlideShows" href="{{slideShow.url}}">
+        <img src={{slideShow.image}} alt={{slideShow.url}}>
+      </a>
     </figure>
   </div>
   <h4 class="latest-text w3_latest_text">CGV CINEMAS</h4>
-  <div class="container" class="slider">
+  <div class="slider">
     <figure>
-      <img src="http://bhdstar.vn/wp-content/uploads/2016/12/BHDStar-Sneakshow-ChayDiRoiTinh-1920x1080.png" alt>
-      <img src="http://bhdstar.vn/wp-content/uploads/2016/12/1920x1080_doibcoin-1.png" alt>
-      <img src="http://bhdstar.vn/wp-content/uploads/2016/12/1920x1080_doibcoin-1.png" alt>
-      <img src="http://bhdstar.vn/wp-content/uploads/2016/12/1920x1080_doibcoin-1.png" alt>
-      <img src="http://bhdstar.vn/wp-content/uploads/2016/12/1920x1080_doibcoin-1.png" alt>
+      <a *ngFor="let slideShow of cgvSlideShows" href="{{slideShow.url}}">
+        <img src={{slideShow.image}} alt={{slideShow.url}}>
+      </a>
     </figure>
   </div>
 </div>

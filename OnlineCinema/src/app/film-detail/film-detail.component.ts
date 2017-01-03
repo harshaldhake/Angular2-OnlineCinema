@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FilmService} from "../_services/film.service";
-import {ShowTime, TimesInDay} from "../_interfaces/show-time";
+import {ShowTime, TimesInDay} from "../_models/show-time";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-film-detail',
@@ -10,19 +11,25 @@ import {ShowTime, TimesInDay} from "../_interfaces/show-time";
 })
 export class FilmDetailComponent implements OnInit {
 
-  showtimes: ShowTime[]= [];
+  filmId: string;
+  showtimes: ShowTime[] = [];
 
-  constructor(private _filmService: FilmService) {
+  constructor(private _filmService: FilmService,
+              private route: ActivatedRoute) {
+
   }
 
   ngOnInit() {
-    this.getShowTime('1', 'Galaxy');
+    this.route.params.subscribe(params => {
+      this.filmId = params['id'];
+      this.getShowTime(this.filmId, 'Galaxy');
+    });
   }
 
   getShowTime(filmId: string, cinemaName: string) {
     this._filmService.getShowTime(filmId, cinemaName)
       .subscribe(showTimes => {
-        this.showtimes = [];
+          this.showtimes = [];
           for (let branchCinema in showTimes) {
             let days: TimesInDay[] = [];
             for (let day in showTimes[branchCinema]) {
