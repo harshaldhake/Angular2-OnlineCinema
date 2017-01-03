@@ -29,4 +29,10 @@ public class BHDParser extends FilmParser{
 		System.out.println("ok\n");
 		System.out.println(response.body().string());
     }
+
+	@Override
+	public void getSlideShow() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -6,11 +6,12 @@ import java.util.Map;
 
 public class Film {
 	public String name;
-	public String genere;
+	public String genre;
 	public String time;
 	public String release;
 	public String img;	
-	public Map<String, List<String>> showTimes;
+	public String trailer;
+	public Map<String, List<List<String>>> showTimes;
 	
 	public Film() {
 		showTimes = new HashMap();

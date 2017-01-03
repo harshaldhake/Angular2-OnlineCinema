@@ -1,22 +1,32 @@
-<div class="container">
+<nav id="nav" role="navigation"> <a href="#nav" title="Show navigation">Show navigation</a> <a href="#" title="Hide navigation">Hide navigation</a>
+  <ul class="clearfix">
+    <li><a href="">Home</a></li>
+    <li> <a href=""><span>Blog</span></a>
+      <ul>
+        <li><a href="">Design</a></li>
+        <li><a href="">HTML</a></li>
+        <li><a href="">CSS</a></li>
+        <li><a href="">JavaScript</a></li>
+      </ul>
+    </li>
+    <li> <a href=""><span>Work</span></a>
+      <ul>
+        <li><a href="">Web Design</a></li>
+        <li><a href="">Typography</a></li>
+        <li><a href="">Front-End</a></li>
+      </ul>
+    </li>
+    <li><a href="">About</a></li>
+  </ul>
+</nav>
 
-  <sebm-google-map
-    [latitude]="lat"
-    [longitude]="lng"
-    [zoom]="zoom"
-    [disableDefaultUI]="false"
-    [streetViewControl]="false"
-    [zoomControl]="true">
+<script src="http://osvaldas.info/examples/main.js"></script>
 
-    <sebm-google-map-marker *ngFor="let c of cinemaMarkers; let i = index"
-                            [latitude]="c.lat"
-                            [longitude]="c.lng"
-                            [iconUrl]="c.iconUrl">
+<script src="http://osvaldas.info/examples/drop-down-navigation-touch-friendly-and-responsive/doubletaptogo.js"></script>
 
-      <sebm-google-map-info-window>
-        <strong>{{c.name}}</strong>
-      </sebm-google-map-info-window>
-    </sebm-google-map-marker>
-  </sebm-google-map>
-</div>
-
+<script>
+  $( function()
+  {
+    $( '#nav li:has(ul)' ).doubleTapToGo();
+  });
+</script>
