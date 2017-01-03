@@ -1,29 +1,46 @@
 import {Injectable} from '@angular/core';
-import {Film} from "../_interfaces/film.interface";
+import {Film} from "../_models/film";
 import {Observable} from "rxjs";
 import {Http, Response} from "@angular/http";
 import 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import {Global} from "../_global/global";
 
 @Injectable()
 export class FilmService {
-
-  private endpoint_url: string = "https://cinematest.njs.jelastic.vps-host.net/cinema/api/films";
 
   constructor(private http: Http) {
 
   }
 
   getFilms(): Observable<Film[]> {
-    return this.http.get(this.endpoint_url)
+    return this.http.get(Global.API_FILMS)
+      .map(response => response.json().films)
+      .catch(this.handleError);
+  }
+
+  getFilmsByCinema(cinema: string): Observable<Film[]> {
+    return this.http.get(Global.API_FILMS + "/cinema/" + cinema)
+      .map(response => response.json().films)
+      .catch(this.handleError);
+  }
+
+  getFilmById(id: string): Observable<Film> {
+    return this.http.get(Global.API_FILMS + "/cinema/" + id)
+      .map(response => response.json().films)
+      .catch(this.handleError);
+  }
+
+  getShowTime(filmId: string, cinemaName: string) {
+    return this.http.get(Global.API_FILMS + "/" + filmId + "/" + cinemaName)
       .map(this.extractData)
       .catch(this.handleError);
   }
 
   private extractData(res: Response) {
-    let body = res.json().films;
-    return body || {};
+    let showTimes = res.json().showtimes;
+    return showTimes || {};
   }
 
   private handleError(error: Response | any) {

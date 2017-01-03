@@ -13,6 +13,7 @@ import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 import {AboutComponent} from "./about/about.component";
 import {GalaxyCinemaComponent} from "./galaxy-cinema/galaxy-cinema.component";
 import {CgvCinemaComponent} from "./cgv-cinema/cgv-cinema.component";
+import {FilmDetailComponent} from "./film-detail/film-detail.component";
 
 export const routes: Routes = [
   {
@@ -23,10 +24,8 @@ export const routes: Routes = [
     path: 'home',
     component: HomeComponent,
   },
-  {
-    path: 'film',
-    component: FilmComponent,
-  },
+  {path: 'film', component: FilmComponent},
+  {path: 'film/:id', component: FilmDetailComponent},
   {path: 'login', component: LoginComponent},
   {path: 'cinema', component: GalaxyCinemaComponent},
   {path: 'cinema/galaxy', component: GalaxyCinemaComponent},

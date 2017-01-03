@@ -1,0 +1,27 @@
+<div class="container">
+
+  <div class="page-header">
+    <h3>THÔNG TIN CHI TIẾT LỊCH CHIẾU </h3>
+  </div>
+  <ul class="timeline">
+    <li *ngFor="let branchCinema of showtimes">
+      <div class="timeline-badge">
+        <img src="../../assets/img/ic_calendar.svg">
+      </div>
+      <div class="timeline-panel">
+        <h4>{{branchCinema.name}} <span class="badge">{{branchCinema.times.length}}</span></h4>
+        <div *ngFor="let day of branchCinema.times">
+          <hr>
+          <div class="timeline-heading">
+            <h4 class="timeline-title">
+              <span class="label label-success"> {{day.day}}</span>
+            </h4>
+          </div>
+          <div class="timeline-body">
+            <h4><span class="label label-primary hour" *ngFor="let time of day.times"> {{time}}</span></h4>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Film} from "../_interfaces/film.interface";
+import {Film} from "../_models/film";
 import {FilmService} from "../_services/film.service";
-import {TabMenu} from "../_interfaces/tab-menu";
+import {TabMenu} from "../_interfaces/tab-menu.interface";
 
 @Component({
   selector: 'app-film',
@@ -11,10 +11,10 @@ import {TabMenu} from "../_interfaces/tab-menu";
 })
 export class FilmComponent implements OnInit {
 
-  title: string;
   films: Film[];
 
   constructor(private _filmService: FilmService) {
+
   }
 
   ngOnInit() {
@@ -31,7 +31,6 @@ export class FilmComponent implements OnInit {
         }
       );
   }
-
   tabMenus: TabMenu[] = [
     {
       title: "Phim đang chiếu",
@@ -49,4 +48,5 @@ export class FilmComponent implements OnInit {
     }
     this.tabMenus[index].active = true;
   }
+
 }
