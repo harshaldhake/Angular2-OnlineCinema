@@ -1,5 +1,5 @@
 <div class="container">
-  <h4 class="latest-text w3_latest_text">GALAXY CINEMA</h4>
+  <a class="btn btn-info film_title" href="https://www.galaxycine.vn/"><i class="fa fa-film fa-lg"></i> GALAXY CINEMA </a>
   <div class="slider">
     <figure>
       <a *ngFor="let slideShow of galaxySlideShows" href="{{slideShow.url}}">
@@ -7,7 +7,7 @@
       </a>
     </figure>
   </div>
-  <h4 class="latest-text w3_latest_text">CGV CINEMAS</h4>
+  <a class="btn btn-info film_title" href="https://www.cgv.vn/"><i class="fa fa-film fa-lg"></i> CGV CINEMA </a>
   <div class="slider">
     <figure>
       <a *ngFor="let slideShow of cgvSlideShows" href="{{slideShow.url}}">

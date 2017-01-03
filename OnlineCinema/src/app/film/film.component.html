@@ -19,11 +19,6 @@
                 <h3 align="center"><a href="#">{{film.name}}</a></h3>
                 <h4 align="center">Thể loại <span class="label label-success">{{film.genre}}</span></h4>
                 <h4 align="center">Thời lượng <span class="label label-success">{{film.duration}}</span></h4>
-                <h4 align="center"><span class="label label-success">
-                   <a href="#" class="preview" data-toggle="modal" data-target="#basicModal">
-                    <i class="fa fa-eye"></i> Trailer
-                  </a>
-                </span></h4>
               </div>
             </div>
           </div>
@@ -32,7 +27,20 @@
               {{film.name}}
             </button>
           </h4>
-          <h4 align="center">Khởi chiếu <span class="label label-success">{{film.release}}</span></h4>
+          <h4 align="center">
+            Khởi chiếu
+            <span class="label label-success">
+              {{film.release}}
+            </span>
+          </h4>
+          <h4 align="center">
+            <a class="btn btn-success" href="#"
+               data-toggle="modal" data-target="#basicModal">
+              <i class="fa fa-eye fa-lg"></i>
+              Trailer
+            </a>
+            <a class="btn btn-primary" href="#"><i class="fa fa-facebook-official fa-lg"></i> Share</a>
+          </h4>
         </div>
       </div>
     </div>
