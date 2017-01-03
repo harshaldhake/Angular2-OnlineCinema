@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
+import com.mongodb.DBObject;
 
 public class ShowTimeDAO {
 	private final static DBCollection collection = MongoUtils.db.getCollection("ShowTime"); 
@@ -66,6 +67,27 @@ public class ShowTimeDAO {
 					.append("showtimes", 1);
 			
 			return collection.findOne(query, fields).get("showtimes").toString().equals("{ }");
+		}
+		catch (Exception ex) {
+			System.out.println(ex);
+			return true;
+		}
+	}
+	
+	public static boolean isEmptyShowTime(String id) {
+		try {
+			BasicDBObject query = new BasicDBObject()
+					.append("id_film", id);
+			BasicDBObject fields = new BasicDBObject()
+					.append("_id", 0)
+					.append("showtimes", 1);
+			
+			List<DBObject> list = collection.find(query, fields).toArray();
+			
+			for (DBObject st : list)
+				if (!st.get("showtimes").toString().equals("{ }"))
+					return false;
+			return true;
 		}
 		catch (Exception ex) {
 			System.out.println(ex);

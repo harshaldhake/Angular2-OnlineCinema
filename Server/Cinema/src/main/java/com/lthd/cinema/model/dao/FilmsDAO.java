@@ -42,6 +42,52 @@ public class FilmsDAO {
 		}
 	}
 	
+	public static String getListFilmNowShowing() {
+		try {
+			BasicDBObject query = new BasicDBObject();
+			BasicDBObject fields = new BasicDBObject()
+					.append("_id", 0);
+
+			List<DBObject> list = collection.find(query, fields).toArray();
+			List<DBObject> films = new ArrayList();
+			
+			for (DBObject film : list)
+				if (!ShowTimeDAO.isEmptyShowTime(film.get("id").toString()))
+					films.add(film);
+			
+			BasicDBObject result = new BasicDBObject()
+					.append("films", films);
+			return result.toString();
+		}
+		catch (Exception ex) {
+			System.out.println(ex);
+			return "null";
+		}
+	}
+	
+	public static String getListFilmComingSoon() {
+		try {
+			BasicDBObject query = new BasicDBObject();
+			BasicDBObject fields = new BasicDBObject()
+					.append("_id", 0);
+
+			List<DBObject> list = collection.find(query, fields).toArray();
+			List<DBObject> films = new ArrayList();
+			
+			for (DBObject film : list)
+				if (ShowTimeDAO.isEmptyShowTime(film.get("id").toString()))
+					films.add(film);
+			
+			BasicDBObject result = new BasicDBObject()
+					.append("films", films);
+			return result.toString();
+		}
+		catch (Exception ex) {
+			System.out.println(ex);
+			return "null";
+		}
+	}
+	
 	public static String getByCinema(String cinema) {
 		try {
 			BasicDBObject query = new BasicDBObject();

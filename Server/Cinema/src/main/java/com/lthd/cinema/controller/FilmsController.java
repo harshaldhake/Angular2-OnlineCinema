@@ -36,12 +36,14 @@ public class FilmsController {
 	
 		cinema.parse();
 		FilmsDAO.save(FilmManager.films);
+		FilmManager.SortShowtimes();
 		ShowTimeDAO.save("CGV", FilmManager.films);
 		
 		cinema = new GalaxyParser("https://www.galaxycine.vn/");
 		
 		FilmManager.clearShowTime();
 		cinema.parse();
+		FilmManager.SortShowtimes();
 		ShowTimeDAO.save("Galaxy", FilmManager.films);
 		
 		return "done";
@@ -77,5 +79,19 @@ public class FilmsController {
 	public String getById_Cinema(@PathParam(value = "cinema") String cinema) throws IOException {
 		return FilmsDAO.getByCinema(cinema);
 
+	}
+	
+	@Path("nowshowing")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
+	public String getAllNowShowing(@PathParam(value = "id") String id) throws IOException {
+		return FilmsDAO.getListFilmNowShowing();
+	}
+	
+	@Path("comingsoon")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
+	public String getAllComingSoon(@PathParam(value = "id") String id) throws IOException {
+		return FilmsDAO.getListFilmComingSoon();
 	}
 }
