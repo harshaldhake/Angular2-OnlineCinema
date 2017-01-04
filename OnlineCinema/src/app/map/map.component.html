@@ -1,32 +1,46 @@
-<nav id="nav" role="navigation"> <a href="#nav" title="Show navigation">Show navigation</a> <a href="#" title="Hide navigation">Hide navigation</a>
-  <ul class="clearfix">
-    <li><a href="">Home</a></li>
-    <li> <a href=""><span>Blog</span></a>
-      <ul>
-        <li><a href="">Design</a></li>
-        <li><a href="">HTML</a></li>
-        <li><a href="">CSS</a></li>
-        <li><a href="">JavaScript</a></li>
+<div class="container">
+  <div class="page-header">
+    <h3>XEM DANH SÁCH VỊ TRÍ CÁC RẠP CHIẾU PHIM TẠI TP HỒ CHÍ MINH</h3>
+    <div class="btn-group">
+      <button type="button"
+              class="btn btn-primary dropdown-toggle"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        CHỌN RẠP PHIM <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a (click)="getMarkers(1)">RẠP GALAXY</a></li>
+        <li><a (click)="getMarkers(2)">RẠP CGV</a></li>
+        <li><a (click)="getMarkers(3)">RẠP BHD</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a (click)="getMarker(0)">XEM TẤT CẢ</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a (click)="getMarker(-1)">TÌM RẠP GẦN NHẤT</a></li>
+        <li role="separator" class="divider"></li>
+        <li type="button"><a (click)="getMarker(-1)">TÌM RẠP GẦN NHẤT</a></li>
       </ul>
-    </li>
-    <li> <a href=""><span>Work</span></a>
-      <ul>
-        <li><a href="">Web Design</a></li>
-        <li><a href="">Typography</a></li>
-        <li><a href="">Front-End</a></li>
-      </ul>
-    </li>
-    <li><a href="">About</a></li>
-  </ul>
-</nav>
+    </div>
+  </div>
+  <sebm-google-map
+    [latitude]="lat"
+    [longitude]="lng"
+    [zoom]="zoom"
+    [disableDefaultUI]=false
+    [zoomControl]="false"
+    (mapClick)="mapClick($event)">
 
-<script src="http://osvaldas.info/examples/main.js"></script>
+    <sebm-google-map-marker
+      *ngFor="let m of markers; let i = index"
+      (markerClick)="clickedMarker(m, i)"
+      [latitude]="m.lat"
+      [longitude]="m.lng"
+      [markerDraggable]="m.draggable"
+      (dragEnd)="markerDragEnd(m, $event)">
 
-<script src="http://osvaldas.info/examples/drop-down-navigation-touch-friendly-and-responsive/doubletaptogo.js"></script>
+      <sebm-google-map-info-window>
+        <strong>{{m.name}}</strong>
+      </sebm-google-map-info-window>
 
-<script>
-  $( function()
-  {
-    $( '#nav li:has(ul)' ).doubleTapToGo();
-  });
-</script>
+    </sebm-google-map-marker>
+  </sebm-google-map>
+
+</div>

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NavigationMenu} from "../_interfaces/navigation-menu.interface";
-import {AngularFire, AuthProviders} from "angularfire2";
-
+import {User} from "../_models/user";
+import { AngularFire, AuthProviders } from 'angularfire2';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -37,16 +37,21 @@ export class MenuComponent implements OnInit {
     }
   ];
 
-  user = {};
+  user: User;
 
   constructor(public af: AngularFire) {
     this.af.auth.subscribe(user => {
       if (user) {
-        this.user = user;
+        // user logged in
+        this.user.uid = user.facebook.uid;
+        this.user.displayName = user.facebook.displayName;
+        this.user.email = user.facebook.email;
+        this.user.photoURL = user.facebook.photoURL;
       }
       else {
-        this.user = {};
+        // user not logged in
       }
+      console.log(this.user);
     });
   }
 
@@ -59,9 +64,13 @@ export class MenuComponent implements OnInit {
     });
   }
 
-  logout() {
-    this.af.auth.logout();
-  }
+  /*
+
+   logout() {
+   this.af.auth.logout();
+   }
+   */
+
   clicked(index) {
     for (let i in this.navMenus) {
       this.navMenus[i].active = false;

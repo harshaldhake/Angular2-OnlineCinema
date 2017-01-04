@@ -1,48 +1,44 @@
 import {Component, OnInit} from '@angular/core';
-
+import {MarkerService} from '../_services/marker.service'
+import {Marker} from "../_models/maker-storage";
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.css']
+  styleUrls: ['./map.component.css'],
+  providers: [MarkerService]
 })
 export class MapComponent implements OnInit {
-/*
 
-  zoom: number = 17;
+  zoom: number = 17; // Zoom level
+
+  // Start position
   lat: number = 10.773226;
   lng: number = 106.692945;
 
-  cinemaMarkers: CinemaMarker[] = [
-    {
-      name: "Galaxy Nguyễn Du",
-      lat: 10.773226,
-      lng: 106.692945,
-      draggable: true,
-      iconUrl: "http://hkd.com.vn/ckfinder/userfiles/images/DU%20AN/26-3.png"
-    },
-    {
-      name: "Galaxy Tân Bình",
-      lat: 10.790238,
-      lng: 106.640733,
-      draggable: true,
-      iconUrl: "http://hkd.com.vn/ckfinder/userfiles/images/DU%20AN/26-3.png"
-    }
-  ];
-*/
+  markers: Marker[];
 
-  constructor() {
+  constructor(private _markerService: MarkerService) {
+    this.markers = this._markerService.getMarkers();
+    console.log(this.markers);
   }
 
   ngOnInit() {
   }
 
+  getMarker(id: number) {
+    console.log(id);
+
+  }
+
+  mapClick($event: any) {
+
+  }
+
+  clickedMarker(marker: Marker, index: number) {
+    console.log(marker.name + " " + index);
+  }
+
+  markerDragEnd(marker: Marker, $event) {
+
+  }
 }
-/*
-export interface CinemaMarker {
-  name: string;
-  lat: number;
-  lng: number;
-  draggable: boolean;
-  iconUrl: string;
-}
-*/

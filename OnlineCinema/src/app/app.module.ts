@@ -17,10 +17,17 @@ import {AboutComponent} from './about/about.component';
 import {AgmCoreModule} from 'angular2-google-maps/core';
 import {GalaxyCinemaComponent} from './galaxy-cinema/galaxy-cinema.component';
 import {CgvCinemaComponent} from './cgv-cinema/cgv-cinema.component';
-import {FirebaseLoginModule} from "./_modules/firebase-login/firebase-login.module";
-import {AngularFire} from "angularfire2";
+import {AngularFireModule, AuthProviders, AuthMethods} from "angularfire2";
 import {ModalModule} from "ng2-modal";
-import { FilmDetailComponent } from './film-detail/film-detail.component';
+import {FilmDetailComponent} from './film-detail/film-detail.component';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDugX01C3UxUxXfe5FNAAFzynTYDYcansA",
+  authDomain: "onlinecinema-48f19.firebaseapp.com",
+  databaseURL: "https://onlinecinema-48f19.firebaseio.com",
+  storageBucket: "onlinecinema-48f19.appspot.com",
+  messagingSenderId: "520394171463"
+};
 
 @NgModule({
   declarations: [
@@ -43,14 +50,19 @@ import { FilmDetailComponent } from './film-detail/film-detail.component';
     FormsModule,
     HttpModule,
     routing,
-    FirebaseLoginModule,
     ModalModule,
     DropdownModule.forRoot(),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDugX01C3UxUxXfe5FNAAFzynTYDYcansA'
+      apiKey: 'AIzaSyBBGF2mwPuQAOXmsXSG7fxid6R9Rw4AOuI'
+    }),
+    AngularFireModule.initializeApp(firebaseConfig,{
+      provider: AuthProviders.Google,
+      method: AuthMethods.Popup
     })
   ],
-  providers: [AngularFire],
+  exports: [
+    BrowserModule,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
