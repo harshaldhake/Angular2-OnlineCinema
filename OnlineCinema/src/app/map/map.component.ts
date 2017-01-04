@@ -11,23 +11,33 @@ export class MapComponent implements OnInit {
 
   zoom: number = 17; // Zoom level
 
-  // Start position
-  lat: number = 10.773226;
-  lng: number = 106.692945;
-
   markers: Marker[];
 
+  private cinemaName: string = 'galaxy';
   constructor(private _markerService: MarkerService) {
-    this.markers = this._markerService.getMarkers();
-    console.log(this.markers);
+    this.markers = this._markerService.getMarkers(this.cinemaName);
   }
 
   ngOnInit() {
   }
 
-  getMarker(id: number) {
-    console.log(id);
-
+  getMarkers(id: number) {
+    switch (id) {
+      case -1 : // Gần nhất
+        break;
+      case 0 : // Tất cả
+        break;
+      case 1 : // Galaxy
+        this.cinemaName = 'galaxy';
+        break;
+      case 2 : // Cgv
+        this.cinemaName = 'cgv';
+        break;
+      case 3 : // bhd
+        this.cinemaName = 'bhd';
+        break;
+    }
+    this.markers = this._markerService.getMarkers(this.cinemaName);
   }
 
   mapClick($event: any) {

@@ -12,17 +12,15 @@
         <li><a (click)="getMarkers(2)">RẠP CGV</a></li>
         <li><a (click)="getMarkers(3)">RẠP BHD</a></li>
         <li role="separator" class="divider"></li>
-        <li><a (click)="getMarker(0)">XEM TẤT CẢ</a></li>
+        <li><a (click)="getMarkers(0)">XEM TẤT CẢ</a></li>
         <li role="separator" class="divider"></li>
-        <li><a (click)="getMarker(-1)">TÌM RẠP GẦN NHẤT</a></li>
-        <li role="separator" class="divider"></li>
-        <li type="button"><a (click)="getMarker(-1)">TÌM RẠP GẦN NHẤT</a></li>
+        <li><a (click)="getMarkers(-1)">TÌM RẠP GẦN NHẤT</a></li>
       </ul>
     </div>
   </div>
   <sebm-google-map
-    [latitude]="lat"
-    [longitude]="lng"
+    [latitude]="markers[0].lat"
+    [longitude]="markers[0].lng"
     [zoom]="zoom"
     [disableDefaultUI]=false
     [zoomControl]="false"

@@ -13,8 +13,8 @@ export class MarkerService extends MarkerStorage {
     this.load();
   }
 
-  public getMarkers() {
-    return JSON.parse(localStorage.getItem('markers'));
+  public getMarkers(cinema: string) {
+    return JSON.parse(localStorage.getItem('markers_' + cinema));
   }
 }
 
