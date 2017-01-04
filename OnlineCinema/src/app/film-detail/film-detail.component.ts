@@ -13,6 +13,7 @@ export class FilmDetailComponent implements OnInit {
 
   filmId: string;
   showtimes: ShowTime[] = [];
+  private cinemaName: string = 'Galaxy';
 
   constructor(private _filmService: FilmService,
               private route: ActivatedRoute) {
@@ -22,8 +23,18 @@ export class FilmDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.filmId = params['id'];
-      this.getShowTime(this.filmId, 'Galaxy');
+      this.getShowTime(this.filmId, this.cinemaName);
     });
+  }
+
+  getShowTimeByCinema(cinemaIndex: number) {
+    if (cinemaIndex === 1) { // Galaxy
+      this.cinemaName = 'Galaxy';
+    }
+    if (cinemaIndex === 2) { // cgv
+      this.cinemaName = 'CGV';
+    }
+    this.getShowTime(this.filmId, this.cinemaName);
   }
 
   getShowTime(filmId: string, cinemaName: string) {
@@ -49,4 +60,5 @@ export class FilmDetailComponent implements OnInit {
         }
       );
   }
+
 }

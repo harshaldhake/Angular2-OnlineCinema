@@ -9,7 +9,6 @@ import {MarkerStorage} from '../_models/maker-storage'
 export class MarkerService extends MarkerStorage {
   constructor() {
     super();
-    console.log('MarkerService Initialized... ');
     this.load();
   }
 

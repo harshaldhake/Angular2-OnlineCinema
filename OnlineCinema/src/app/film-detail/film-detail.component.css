@@ -38,6 +38,10 @@
   background-color: #c52d2f !important;
 }
 
+.label:hover {
+  background-color: #c52d2f !important;
+}
+
 .timeline > li > .timeline-panel {
   width: calc(100% - 75px);
   float: right;

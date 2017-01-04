@@ -18,11 +18,11 @@ export class FilmComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getFilms();
+    this.getFilmsShowing();
   }
 
-  getFilms() {
-    this._filmService.getFilms()
+  getFilmsShowing() {
+    this._filmService.getFilmsShowing()
       .subscribe(films => {
           this.films = films
         },
@@ -31,6 +31,18 @@ export class FilmComponent implements OnInit {
         }
       );
   }
+
+  getFilmsCommingSoon() {
+    this._filmService.getFilmsCommingSoon()
+      .subscribe(films => {
+          this.films = films
+        },
+        err => {
+          console.log(err);
+        }
+      );
+  }
+
   tabMenus: TabMenu[] = [
     {
       title: "Phim đang chiếu",
@@ -47,6 +59,12 @@ export class FilmComponent implements OnInit {
       this.tabMenus[i].active = false;
     }
     this.tabMenus[index].active = true;
+    if (index === 0) {
+      this.getFilmsShowing();
+    }
+    if (index === 1) {
+      this.getFilmsCommingSoon();
+    }
   }
 
 }

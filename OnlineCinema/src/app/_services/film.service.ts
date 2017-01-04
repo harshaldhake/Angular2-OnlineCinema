@@ -14,8 +14,13 @@ export class FilmService {
 
   }
 
-  getFilms(): Observable<Film[]> {
-    return this.http.get(Global.API_FILMS)
+  getFilmsShowing(): Observable<Film[]> {
+    return this.http.get(Global.API_FILMS_SHOWING)
+      .map(response => response.json().films)
+      .catch(this.handleError);
+  }
+  getFilmsCommingSoon(): Observable<Film[]> {
+    return this.http.get(Global.API_FILMS_COMINGSOON)
       .map(response => response.json().films)
       .catch(this.handleError);
   }
