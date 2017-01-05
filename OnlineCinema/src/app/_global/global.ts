@@ -1,9 +1,11 @@
 export class Global {
 
   public static get API_FILMS(): string {
-    return "http://cinematest.njs.jelastic.vps-host.net/cinema/api/films";
+    return "http://cinematest.njs.jelastic.vps-host.net/cinema/api/films/";
   }
-
+  public static get API_FILMS_BY_CINEMA(): string {
+    return "http://cinematest.njs.jelastic.vps-host.net/cinema/api/films/cinema/";
+  }
   public static get API_FILMS_SHOWING(): string {
    return "http://cinematest.njs.jelastic.vps-host.net/cinema/api/films/nowshowing";
    }

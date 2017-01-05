@@ -20,6 +20,7 @@ import {CgvCinemaComponent} from './cgv-cinema/cgv-cinema.component';
 import {AngularFireModule, AuthProviders, AuthMethods} from "angularfire2";
 import {ModalModule} from "ng2-modal";
 import {FilmDetailComponent} from './film-detail/film-detail.component';
+import { ImageSliderComponent } from './image-slider/image-slider.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDugX01C3UxUxXfe5FNAAFzynTYDYcansA",
@@ -44,6 +45,7 @@ const firebaseConfig = {
     GalaxyCinemaComponent,
     CgvCinemaComponent,
     FilmDetailComponent,
+    ImageSliderComponent
   ],
   imports: [
     BrowserModule,

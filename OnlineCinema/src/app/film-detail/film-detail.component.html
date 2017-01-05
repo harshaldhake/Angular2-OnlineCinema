@@ -1,5 +1,26 @@
 <div class="container">
-
+  <div class="row header">
+    <div class="col-md-8">
+      <h1 class="page-header"> {{film.name}}
+        <small>{{film.release}}</small>
+      </h1>
+      <iframe class="e2e-trusted-url
+      embed-responsive-item trailer"
+              style="height: 512px"
+              [src]="trailerUrl"></iframe>
+      <!--<img class="img-responsive" src="{{film.img}}">-->
+    </div>
+    <div class="col-md-4">
+      <div class="well">
+        <a href="{{film.img}}">
+          <img class="cover" src="{{film.img}}" alt="{{film.img}}">
+        </a>
+        <h2 align="center">{{film.duration}} </h2>
+        <p align="center" class="lead"> {{film.genre}}</p>
+      </div>
+    </div>
+  </div>
+  <hr>
   <div class="page-header">
     <h3>THÔNG TIN CHI TIẾT LỊCH CHIẾU </h3>
     <div class="btn-group">

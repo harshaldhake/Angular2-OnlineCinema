@@ -19,6 +19,7 @@ export class FilmService {
       .map(response => response.json().films)
       .catch(this.handleError);
   }
+
   getFilmsCommingSoon(): Observable<Film[]> {
     return this.http.get(Global.API_FILMS_COMINGSOON)
       .map(response => response.json().films)
@@ -26,26 +27,21 @@ export class FilmService {
   }
 
   getFilmsByCinema(cinema: string): Observable<Film[]> {
-    return this.http.get(Global.API_FILMS + "/cinema/" + cinema)
+    return this.http.get(Global.API_FILMS_BY_CINEMA + cinema)
       .map(response => response.json().films)
       .catch(this.handleError);
   }
 
-  getFilmById(id: string): Observable<Film> {
-    return this.http.get(Global.API_FILMS + "/cinema/" + id)
-      .map(response => response.json().films)
+  getFilmById(filmId: string): Observable<Film> {
+    return this.http.get(Global.API_FILMS + filmId)
+      .map(res => res.json())
       .catch(this.handleError);
   }
 
   getShowTime(filmId: string, cinemaName: string) {
-    return this.http.get(Global.API_FILMS + "/" + filmId + "/" + cinemaName)
-      .map(this.extractData)
+    return this.http.get(Global.API_FILMS + filmId + "/" + cinemaName)
+      .map(res => res.json().showtimes)
       .catch(this.handleError);
-  }
-
-  private extractData(res: Response) {
-    let showTimes = res.json().showtimes;
-    return showTimes || {};
   }
 
   private handleError(error: Response | any) {

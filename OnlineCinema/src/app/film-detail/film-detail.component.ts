@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FilmService} from "../_services/film.service";
 import {ShowTime, TimesInDay} from "../_models/show-time";
 import {ActivatedRoute} from "@angular/router";
+import {Film} from "../_models/film";
+import {DomSanitizer, SafeUrl, SafeResourceUrl} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-film-detail',
@@ -13,17 +15,22 @@ export class FilmDetailComponent implements OnInit {
 
   filmId: string;
   showtimes: ShowTime[] = [];
+  trailerUrl: SafeResourceUrl;
+  film: Film;
   private cinemaName: string = 'Galaxy';
 
   constructor(private _filmService: FilmService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private sanitizer: DomSanitizer) {
 
+    this.film = new Film("", "", "", "", "", "", "");
   }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.filmId = params['id'];
       this.getShowTime(this.filmId, this.cinemaName);
+      this.getFilmById();
     });
   }
 
@@ -61,4 +68,15 @@ export class FilmDetailComponent implements OnInit {
       );
   }
 
+  getFilmById() {
+    this._filmService.getFilmById(this.filmId).subscribe(
+      film => {
+        this.film = film;
+        this.trailerUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.film.trailer);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
 }

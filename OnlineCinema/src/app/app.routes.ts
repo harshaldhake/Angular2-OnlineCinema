@@ -16,14 +16,11 @@ import {CgvCinemaComponent} from "./cgv-cinema/cgv-cinema.component";
 import {FilmDetailComponent} from "./film-detail/film-detail.component";
 
 export const routes: Routes = [
-  {
-    path: '',
-    component: HomeComponent,
-  },
-  {
-    path: 'home',
-    component: HomeComponent,
-  },
+  {path: '', component: HomeComponent,},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: '#', redirectTo: '/home', pathMatch: 'full'},
+  {path: '#', component: HomeComponent,},
+  {path: 'home', component: HomeComponent,},
   {path: 'film', component: FilmComponent},
   {path: 'film/:id', component: FilmDetailComponent},
   {path: 'login', component: LoginComponent},
@@ -33,7 +30,6 @@ export const routes: Routes = [
   {path: 'map', component: MapComponent},
   {path: 'about', component: AboutComponent},
   {path: 'contact', component: ContactComponent,},
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
 
 ];

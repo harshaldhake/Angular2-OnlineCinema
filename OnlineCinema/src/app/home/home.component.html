@@ -1,18 +1,1 @@
-<div class="container">
-  <a class="btn btn-info film_title" href="https://www.galaxycine.vn/"><i class="fa fa-film fa-lg"></i> GALAXY CINEMA </a>
-  <div class="slider">
-    <figure>
-      <a *ngFor="let slideShow of galaxySlideShows" href="{{slideShow.url}}">
-        <img src={{slideShow.image}} alt={{slideShow.url}}>
-      </a>
-    </figure>
-  </div>
-  <a class="btn btn-info film_title" href="https://www.cgv.vn/"><i class="fa fa-film fa-lg"></i> CGV CINEMA </a>
-  <div class="slider">
-    <figure>
-      <a *ngFor="let slideShow of cgvSlideShows" href="{{slideShow.url}}">
-        <img src={{slideShow.image}} alt={{slideShow.url}}>
-      </a>
-    </figure>
-  </div>
-</div>
+<app-image-slider *ngFor="let c of cinemas" [cinema]="c"></app-image-slider>
