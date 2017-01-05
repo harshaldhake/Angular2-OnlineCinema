@@ -14,11 +14,11 @@ import {FilmDetailComponent} from "./film-detail/film-detail.component";
 import {FilmGalleryComponent} from "./film-gallery/film-gallery.component";
 
 export const routes: Routes = [
-  {path: '', component: HomeComponent,},
+  {path: '', component: HomeComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '#', redirectTo: '/home', pathMatch: 'full'},
-  {path: '#', component: HomeComponent,},
-  {path: 'home', component: HomeComponent,},
+  {path: '#', component: HomeComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'film', component: FilmComponent},
   {path: 'film/:id', component: FilmDetailComponent},
   {
@@ -32,7 +32,7 @@ export const routes: Routes = [
   {path: 'cinema/:id', component: FilmGalleryComponent},
   {path: 'map', component: MapComponent},
   {path: 'about', component: AboutComponent},
-  {path: 'contact', component: ContactComponent,},
+  {path: 'contact', component: ContactComponent},
   {path: '**', component: PageNotFoundComponent}
 
 ];

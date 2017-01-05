@@ -16,13 +16,12 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {AboutComponent} from './about/about.component';
 import {AgmCoreModule} from 'angular2-google-maps/core';
 import {AngularFireModule, AuthProviders, AuthMethods} from "angularfire2";
-import {ModalModule} from "ng2-modal";
 import {FilmDetailComponent} from './film-detail/film-detail.component';
 import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { FilmGalleryComponent } from './film-gallery/film-gallery.component';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDugX01C3UxUxXfe5FNAAFzynTYDYcansA",
+  apiKey: "AIzaSyBBGF2mwPuQAOXmsXSG7fxid6R9Rw4AOuI",
   authDomain: "onlinecinema-48f19.firebaseapp.com",
   databaseURL: "https://onlinecinema-48f19.firebaseio.com",
   storageBucket: "onlinecinema-48f19.appspot.com",
@@ -50,7 +49,6 @@ const firebaseConfig = {
     FormsModule,
     HttpModule,
     routing,
-    ModalModule,
     DropdownModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBBGF2mwPuQAOXmsXSG7fxid6R9Rw4AOuI'

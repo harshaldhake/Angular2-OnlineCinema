@@ -1,3 +1,18 @@
-<p>
-  login works!
-</p>
+<div class="container">
+  <div class="info">
+    <h1>ĐĂNG NHẬP</h1>
+    <p>Đăng nhập để nhận nhiều thông tin khuyến mãi hấp dẫn hơn!</p>
+  </div>
+</div>
+<div class="form">
+  <form class="login-form">
+    <input type="email" name="email" placeholder="email" autocomplete="on"/>
+    <input type="password" name="password" minlength="6" placeholder="password"/>
+    <button>Login</button>
+    <button class="facebook" (click)="loginFacebook()">
+      <i class="fa fa-facebook-official fa-lg" aria-hidden="true"></i>
+      Login with <strong>Facebook</strong>
+    </button>
+    <p class="message">Not registered? <a href="#">Create an account</a></p>
+  </form>
+</div>

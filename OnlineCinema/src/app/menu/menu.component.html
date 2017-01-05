@@ -13,8 +13,11 @@
               </form>
             </div>
             <ul class="social-share">
-              <li><a href="" (click)="loginFacebook()"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-              <li><a href="" (click)="logout()"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a></li>
+              <li data-toggle="tooltip" data-placement="right" title="Click để đăng nhập">
+                <a routerLink="login" routerLinkActive="active">
+                  <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
