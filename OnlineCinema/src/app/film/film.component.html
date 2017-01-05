@@ -1,4 +1,4 @@
-<section id="portfolio" style="margin-top: 24px">
+<section id="portfolio">
   <div class="container">
     <ul class="portfolio-filter text-center">
       <li>
@@ -34,7 +34,7 @@
             </span>
           </h4>
           <h4 align="center">
-            <a class="btn btn-success" href="#"
+            <a class="btn btn-success" href="#" (click)="getTrailer(film.trailer)"
                data-toggle="modal" data-target="#basicModal">
               <i class="fa fa-eye fa-lg"></i>
               Trailer
@@ -57,10 +57,11 @@
         <div class="modal-body">
           <div class="embed-responsive embed-responsive-4by3">
             <!--<iframe class="embed-responsive-item" src="//www.youtube.com/embed/ePbKGoIGAXY"></iframe>-->
-            <!--<iframe class="embed-responsive-item" src="{{trailer}}"></iframe>-->
+            <iframe class="embed-responsive-item" [src]="trailerUrl"></iframe>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+

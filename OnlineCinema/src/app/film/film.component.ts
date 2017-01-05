@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Film} from "../_models/film";
 import {FilmService} from "../_services/film.service";
 import {TabMenu} from "../_interfaces/tab-menu.interface";
+import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-film',
@@ -12,8 +13,10 @@ import {TabMenu} from "../_interfaces/tab-menu.interface";
 export class FilmComponent implements OnInit {
 
   films: Film[];
+  trailerUrl: SafeResourceUrl;
 
-  constructor(private _filmService: FilmService) {
+  constructor(private _filmService: FilmService,
+              private sanitizer: DomSanitizer) {
 
   }
 
@@ -67,4 +70,7 @@ export class FilmComponent implements OnInit {
     }
   }
 
+  getTrailer(trailer: string) {
+    this.trailerUrl = this.sanitizer.bypassSecurityTrustResourceUrl(trailer);
+  }
 }
