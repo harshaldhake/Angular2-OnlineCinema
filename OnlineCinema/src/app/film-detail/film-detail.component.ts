@@ -13,11 +13,14 @@ import {DomSanitizer, SafeUrl, SafeResourceUrl} from "@angular/platform-browser"
 })
 export class FilmDetailComponent implements OnInit {
 
+  // Params
   filmId: string;
+  cinemaName: string = "none";
+
   showtimes: ShowTime[] = [];
   trailerUrl: SafeResourceUrl;
   film: Film;
-  private cinemaName: string = 'Galaxy';
+  isShow: boolean = false;
 
   constructor(private _filmService: FilmService,
               private route: ActivatedRoute,
@@ -28,7 +31,14 @@ export class FilmDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.filmId = params['id'];
+      let paras = params['id'].split('_');
+      this.filmId = paras[0];
+      this.cinemaName = paras[1];
+      this.isShow = false;
+      if (this.cinemaName === "none") {
+        this.cinemaName = 'Galaxy';
+        this.isShow = true;
+      }
       this.getShowTime(this.filmId, this.cinemaName);
       this.getFilmById();
     });

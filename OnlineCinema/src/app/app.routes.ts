@@ -23,6 +23,13 @@ export const routes: Routes = [
   {path: 'home', component: HomeComponent,},
   {path: 'film', component: FilmComponent},
   {path: 'film/:id', component: FilmDetailComponent},
+  {
+    path: 'film/:id', component: FilmDetailComponent,
+    children: [
+      {path: 'galaxy', component: FilmDetailComponent},
+      {path: 'cgv', component: FilmDetailComponent}
+    ]
+  },
   {path: 'login', component: LoginComponent},
   {path: 'cinema', component: GalaxyCinemaComponent},
   {path: 'cinema/galaxy', component: GalaxyCinemaComponent},
