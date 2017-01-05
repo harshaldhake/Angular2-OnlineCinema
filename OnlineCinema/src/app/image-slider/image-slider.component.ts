@@ -28,7 +28,6 @@ export class ImageSliderComponent implements OnInit {
       .subscribe(slideShows => {
           this.slideShows = slideShows;
           this.styleWidth = ((this.slideShows.length + 1) * 100) + "%";
-          console.log(this.slideShows);
         },
         err => {
           console.log(err);

@@ -1,19 +1,17 @@
 /**
  * Created by Phuc-Hau Nguyen on 12/28/2016.
  */
-
+import {ModuleWithProviders} from "@angular/core";
 import {Routes, RouterModule} from "@angular/router";
 import {ContactComponent} from "./contact/contact.component";
 import {LoginComponent} from "./login/login.component";
 import {FilmComponent} from "./film/film.component";
 import {MapComponent} from "./map/map.component";
 import {HomeComponent} from "./home/home.component";
-import {ModuleWithProviders} from "@angular/core";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 import {AboutComponent} from "./about/about.component";
-import {GalaxyCinemaComponent} from "./galaxy-cinema/galaxy-cinema.component";
-import {CgvCinemaComponent} from "./cgv-cinema/cgv-cinema.component";
 import {FilmDetailComponent} from "./film-detail/film-detail.component";
+import {FilmGalleryComponent} from "./film-gallery/film-gallery.component";
 
 export const routes: Routes = [
   {path: '', component: HomeComponent,},
@@ -31,9 +29,7 @@ export const routes: Routes = [
     ]
   },
   {path: 'login', component: LoginComponent},
-  {path: 'cinema', component: GalaxyCinemaComponent},
-  {path: 'cinema/galaxy', component: GalaxyCinemaComponent},
-  {path: 'cinema/cgv', component: CgvCinemaComponent},
+  {path: 'cinema/:id', component: FilmGalleryComponent},
   {path: 'map', component: MapComponent},
   {path: 'about', component: AboutComponent},
   {path: 'contact', component: ContactComponent,},

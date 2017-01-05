@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
+    // window.open('http://www.stackoverflow.com', '_blank', 'width=500, height=400')
   }
 
 }

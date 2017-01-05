@@ -3,7 +3,7 @@ import {FilmService} from "../_services/film.service";
 import {ShowTime, TimesInDay} from "../_models/show-time";
 import {ActivatedRoute} from "@angular/router";
 import {Film} from "../_models/film";
-import {DomSanitizer, SafeUrl, SafeResourceUrl} from "@angular/platform-browser";
+import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-film-detail',

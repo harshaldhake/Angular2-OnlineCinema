@@ -15,12 +15,11 @@ import {HomeComponent} from './home/home.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {AboutComponent} from './about/about.component';
 import {AgmCoreModule} from 'angular2-google-maps/core';
-import {GalaxyCinemaComponent} from './galaxy-cinema/galaxy-cinema.component';
-import {CgvCinemaComponent} from './cgv-cinema/cgv-cinema.component';
 import {AngularFireModule, AuthProviders, AuthMethods} from "angularfire2";
 import {ModalModule} from "ng2-modal";
 import {FilmDetailComponent} from './film-detail/film-detail.component';
 import { ImageSliderComponent } from './image-slider/image-slider.component';
+import { FilmGalleryComponent } from './film-gallery/film-gallery.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDugX01C3UxUxXfe5FNAAFzynTYDYcansA",
@@ -42,10 +41,9 @@ const firebaseConfig = {
     HomeComponent,
     PageNotFoundComponent,
     AboutComponent,
-    GalaxyCinemaComponent,
-    CgvCinemaComponent,
     FilmDetailComponent,
-    ImageSliderComponent
+    ImageSliderComponent,
+    FilmGalleryComponent
   ],
   imports: [
     BrowserModule,

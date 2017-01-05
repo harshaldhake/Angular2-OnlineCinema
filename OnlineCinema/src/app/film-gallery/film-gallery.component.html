@@ -15,7 +15,7 @@
             </div>
           </div>
           <h4 align="center">
-            <button type="button" class="btn btn-danger" [routerLink]="['/film', film.id +'_Galaxy']">
+            <button type="button" class="btn btn-danger" [routerLink]="['/film', film.id + '_' + cinema]">
               {{film.name}}
             </button>
           </h4>
@@ -26,7 +26,7 @@
             </span>
           </h4>
           <h4 align="center">
-            <a class="btn btn-success" href="#"
+            <a class="btn btn-success" href="#" (click)="getTrailer(film.trailer)"
                data-toggle="modal" data-target="#basicModal">
               <i class="fa fa-eye fa-lg"></i>
               Trailer
@@ -37,18 +37,18 @@
       </div>
     </div>
   </div>
+  <!--// Model-->
   <div class="modal fade" id="basicModal" tabindex="-1" role="dialog"
        aria-labelledby="basicModal" aria-hidden="true">
-    <div class="modal-dialog center">
+    <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="myModalLabel">Trailer <!--: {{filmDetail.name}}--></h4>
+          <h4 class="modal-title" id="myModalLabel">Trailer </h4>
         </div>
         <div class="modal-body">
-          <div class="embed-responsive embed-responsive-4by3">
-            <!--<iframe class="embed-responsive-item" src="//www.youtube.com/embed/ePbKGoIGAXY"></iframe>-->
-            <!--<iframe class="embed-responsive-item" src="{{trailer}}"></iframe>-->
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" [src]="trailerUrl"></iframe>
           </div>
         </div>
       </div>
