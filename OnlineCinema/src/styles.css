@@ -5,12 +5,49 @@ html {
   position: relative;
   min-height: 100%;
 }
-
-body {
-  background-color: #e7e4dc;
-  font-family: 'Open Sans', sans-serif;
-  color: #4e4e4e;
+body{
+  color: #1a1a1a;
+  background-color: #eeeeee;
 }
+/*body{
+  margin:0;
+  padding:0;
+  color: white;
+  font-family:"arial",heletica,sans-serif;
+  font-size:12px;
+  !*background: black url('http://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0;*!
+  background: url("../src/assets/img/ic_bak.jpg");
+  -webkit-animation: 10s linear 0s normal none infinite animate;
+  -moz-animation: 10s linear 0s normal none infinite animate;
+  -ms-animation: 10s linear 0s normal none infinite animate;
+  -o-animation: 10s linear 0s normal none infinite animate;
+  animation: 10s linear 0s normal none infinite animate;
+}
+
+@-webkit-keyframes animate {
+  from {background-position:0 0;}
+  to {background-position: 500px 0;}
+}
+
+@-moz-keyframes animate {
+  from {background-position:0 0;}
+  to {background-position: 500px 0;}
+}
+
+@-ms-keyframes animate {
+  from {background-position:0 0;}
+  to {background-position: 500px 0;}
+}
+
+@-o-keyframes animate {
+  from {background-position:0 0;}
+  to {background-position: 500px 0;}
+}
+
+@keyframes animate {
+  from {background-position:0 0;}
+  to {background-position: 500px 0;}
+}*/
 
 .center {
   text-align: center;
@@ -47,7 +84,7 @@ body {
 }
 
 .portfolio-filter > li a {
-  background: none repeat scroll 0 0 #FFFFFF;
+  background: none repeat scroll 0 0 white;
   font-size: 14px;
   font-weight: 400;
   margin-right: 20px;
@@ -63,7 +100,7 @@ body {
 
 .portfolio-filter > li a:hover,
 .portfolio-filter > li a.active {
-  color: #fff;
+  color: white;
   background: #212121;
   border: 1px solid #212121;
   box-shadow: none;
@@ -81,6 +118,3 @@ body {
 .portfolio-item {
   padding: 4px;
 }
-
-
-

@@ -2,8 +2,18 @@
   margin-top: 115px;
   padding-bottom: 0;
 }
+
+.header {
+  padding: 1em;
+}
+
+.header h2 {
+  font-weight: bold;
+}
+
 .container {
-  width: 75%;
+  width: 80%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .isotope-item {

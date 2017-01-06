@@ -64,7 +64,7 @@ ul.social-share li a:hover {
 .navbar {
   border-radius: 0;
   margin-bottom: 0;
-  background: #c52d2f;
+  background: #c52d2f url("../../assets/img/ic_menu_bak_0.png");
   padding: 15px 0 0;
 }
 

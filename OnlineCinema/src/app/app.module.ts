@@ -51,7 +51,7 @@ const firebaseConfig = {
     routing,
     DropdownModule.forRoot(),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBBGF2mwPuQAOXmsXSG7fxid6R9Rw4AOuI'
+      apiKey: 'AIzaSyBFIlJW3spOqKiyU8uva4tL_pxnhahZnW8'
     }),
     AngularFireModule.initializeApp(firebaseConfig,{
       provider: AuthProviders.Google,

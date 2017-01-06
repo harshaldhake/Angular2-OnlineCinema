@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
+import {DomSanitizer, SafeResourceUrl, SafeUrl} from "@angular/platform-browser";
 import {FilmService} from "../_services/film.service";
 import {Film} from "../_models/film";
 import {ActivatedRoute} from "@angular/router";
@@ -14,6 +14,8 @@ export class FilmGalleryComponent implements OnInit {
 
   cinema: string;
 
+  title: string;
+  url: string;
   films: Film[];
   trailerUrl: SafeResourceUrl;
 
@@ -26,6 +28,14 @@ export class FilmGalleryComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.cinema = params['id'];
+      if (this.cinema === 'CGV') {
+        this.title = 'RẠP CGV CINEMA';
+        this.url = "https://www.cgv.vn/vn/movies/now-showing.html";
+      }
+      if (this.cinema === 'Galaxy') {
+        this.title = 'RẠP GALAXY CINEMA';
+        this.url = "https://www.galaxycine.vn/rap-gia-ve";
+      }
       this.getFilms();
     });
   }
@@ -40,6 +50,7 @@ export class FilmGalleryComponent implements OnInit {
         }
       );
   }
+
   getTrailer(trailer: string) {
     this.trailerUrl = this.sanitizer.bypassSecurityTrustResourceUrl(trailer);
   }
