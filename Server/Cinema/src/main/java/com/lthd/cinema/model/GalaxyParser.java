@@ -50,7 +50,7 @@ public class GalaxyParser extends FilmParser{
     	Elements elements = element.select("ul[class=items]").get(0).children();
     	
     	for (int i = 0; i < elements.size(); i++) {
-    		Film film = searchFilmByName(elements.get(i).text());
+    		Film film = FilmManager.searchFilmByName(elements.get(i).text());
     		if (film == null)
     			continue;
 	    	OkHttpClient client = new OkHttpClient();
@@ -68,23 +68,6 @@ public class GalaxyParser extends FilmParser{
     	}
     	
     }
-    
-    private Film searchFilmByName(String name) {
-		for (Film film : FilmManager.films) {
-			String _name = film.name.toLowerCase();
-			name = name.toLowerCase();
-			if (name.contains(_name) || _name.contains(name))
-				return film;
-			
-			String[] _words = _name.split("[:/-]");
-			String[] words = name.split("[:/-]");
-			for (String word : words)
-				for (String _word: _words)
-					if (_word.equals(word))
-						return film;
-		}
-		return null;
-	}
 
 	private void loadFilm(String dataParam, String dataId, String data, Film film) throws IOException {
     	Element element = doc.select("div[class=sub-2]").get(0).child(1);
