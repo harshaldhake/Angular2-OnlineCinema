@@ -6,6 +6,11 @@
   margin-left: 0;
 }
 
+.logo img {
+  height: 24px;
+  width: 24px;
+}
+
 .top-bar {
   padding: 10px 0;
   background: #191919;

@@ -9,20 +9,26 @@ import {AngularFire, AuthProviders} from 'angularfire2';
 export class LoginComponent implements OnInit {
 
   user: User;
-
-  ngOnInit() {
-
-  }
+  isLogin: boolean;
 
   constructor(public af: AngularFire) {
+    this.user = new User();
+  }
+
+  ngOnInit() {
     this.af.auth.subscribe(user => {
+      console.log(user);
       if (user) {
         this.user.uid = user.facebook.uid;
         this.user.displayName = user.facebook.displayName;
         this.user.email = user.facebook.email;
         this.user.photoURL = user.facebook.photoURL;
+        this.user.refreshToken = user.auth.refreshToken;
+        this.isLogin = true;
       }
-      console.log(this.user);
+      else {
+        this.isLogin = false;
+      }
     });
   }
 
@@ -32,11 +38,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  /*
-
-   logout() {
-   this.af.auth.logout();
-   }
-   */
-
+  logout() {
+    this.af.auth.logout();
+  }
 }

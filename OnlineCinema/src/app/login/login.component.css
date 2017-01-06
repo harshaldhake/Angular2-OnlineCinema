@@ -3,10 +3,17 @@
   z-index: 1;
   background: white;
   max-width: 384px;
-  margin: 0 auto 100px;
   padding: 30px;
+  margin: 2em auto 100px;
   border-radius: 0.5em;
   text-align: center;
+}
+
+.form .row img {
+  display: block;
+  width: 10em;
+  height: 10em;
+  margin: 16px auto;
 }
 
 .form input {
@@ -97,4 +104,15 @@
 
 .container .info span .fa {
   color: #EF3B3A;
+}
+
+.glyphicon {
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+small {
+  display: block;
+  line-height: 1.428571429;
+  color: #999;
 }

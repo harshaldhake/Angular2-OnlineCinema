@@ -21,11 +21,11 @@ import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { FilmGalleryComponent } from './film-gallery/film-gallery.component';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBBGF2mwPuQAOXmsXSG7fxid6R9Rw4AOuI",
-  authDomain: "onlinecinema-48f19.firebaseapp.com",
-  databaseURL: "https://onlinecinema-48f19.firebaseio.com",
-  storageBucket: "onlinecinema-48f19.appspot.com",
-  messagingSenderId: "520394171463"
+  apiKey: "AIzaSyC65mTu6VUfkOi4B6QxYkUHqAx1KExEuD8",
+  authDomain: "phim-456.firebaseapp.com",
+  databaseURL: "https://phim-456.firebaseio.com",
+  storageBucket: "phim-456.appspot.com",
+  messagingSenderId: "278743644132"
 };
 
 @NgModule({
@@ -51,7 +51,7 @@ const firebaseConfig = {
     routing,
     DropdownModule.forRoot(),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBFIlJW3spOqKiyU8uva4tL_pxnhahZnW8'
+      apiKey: 'AIzaSyA9jnjPXZBcjuzJnTfAKmpiSUKJp8G6bPI'
     }),
     AngularFireModule.initializeApp(firebaseConfig,{
       provider: AuthProviders.Google,
