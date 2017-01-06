@@ -43,47 +43,6 @@ public class GalaxyParser extends FilmParser{
 
     @Override
     public void parse() throws IOException {
-       /* Document doc = Jsoup.connect(url).get();
-        Elements elements = doc.select("li[class=col-4]");
-
-        for (int i = 0; i < elements.size(); i++) {
-        	String srcImageFilm = elements.get(i).child(0).child(0).attr("src");
-        	
-	        if (srcImageFilm.contains(" "))
-	            srcImageFilm = srcImageFilm.replaceAll(" ", "%20");
-
-	        filmImages.add(srcImageFilm);
-	        filmNames.add(elements.get(i).child(0).attr("title"));
-	        
-	        String urlShowTimes = elements.get(i).child(0).attr("href");
-
-	        Document doc2 = Jsoup.connect(urlShowTimes).get();
-	        Elements elements2 = doc2.select("strong").get(0).parent().parent().children();
-	        
-	        String info = "";
-            for (int j = 0; j < elements2.size(); j++)
-                if (elements2.get(j).nodeName().equals("p"))
-                    info += elements2.get(j).text() + "\n";
-
-            filmInfos.add(info);
-	        
-	        Elements titles = doc2.select("h2[class=silver-title]");
-            Elements content = doc2.select("div[class=silver-content]");
-            Map<String, String> showtime = new HashMap<String, String>();
-            for (int j = 0; j < titles.size(); j++) {
-            	if (titles.get(j).text().equals("Galaxy Bến Tre") 
-    	        		|| titles.get(j).text().equals("Galaxy Đà Nẵng") 
-    	        		|| titles.get(j).text().equals("Galaxy Mipec Long Biên"))
-    	        	continue;
-            	String time = "";
-                for (int k = 0; k < content.get(j).children().size(); k++) {
-                    time += content.get(j).child(k).child(0).text() + "\n";
-                    time += content.get(j).child(k).child(1).text() + "\n";
-                }
-                showtime.put(titles.get(j).text(), time);
-            }
-            showtimes.add(showtime);
-        }*/
     	
     	Element element = doc.select("div[class=sub-2]").get(0).child(0);
     	String ajaxFilm = element.attr("data-ajax");
@@ -91,7 +50,7 @@ public class GalaxyParser extends FilmParser{
     	Elements elements = element.select("ul[class=items]").get(0).children();
     	
     	for (int i = 0; i < elements.size(); i++) {
-    		Film film = searchFilmByName(elements.get(i).text());
+    		Film film = FilmManager.searchFilmByName(elements.get(i).text());
     		if (film == null)
     			continue;
 	    	OkHttpClient client = new OkHttpClient();
@@ -109,23 +68,6 @@ public class GalaxyParser extends FilmParser{
     	}
     	
     }
-    
-    private Film searchFilmByName(String name) {
-		for (Film film : FilmManager.films) {
-			String _name = film.name.toLowerCase();
-			name = name.toLowerCase();
-			if (name.contains(_name) || _name.contains(name))
-				return film;
-			
-			String[] _words = _name.split("[:/-]");
-			String[] words = name.split("[:/-]");
-			for (String word : words)
-				for (String _word: _words)
-					if (_word.equals(word))
-						return film;
-		}
-		return null;
-	}
 
 	private void loadFilm(String dataParam, String dataId, String data, Film film) throws IOException {
     	Element element = doc.select("div[class=sub-2]").get(0).child(1);

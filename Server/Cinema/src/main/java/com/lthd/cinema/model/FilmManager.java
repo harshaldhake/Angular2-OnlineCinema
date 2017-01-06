@@ -59,4 +59,21 @@ public class FilmManager {
 				}
 			}
 	}
+	
+	public static Film searchFilmByName(String name) {
+		for (Film film : FilmManager.films) {
+			String _name = film.name.toLowerCase();
+			name = name.toLowerCase();
+			if (name.contains(_name) || _name.contains(name))
+				return film;
+			
+			String[] _words = _name.split("[:/-]");
+			String[] words = name.split("[:/-]");
+			for (String word : words)
+				for (String _word: _words)
+					if (_word.equals(word))
+						return film;
+		}
+		return null;
+	}
 }
