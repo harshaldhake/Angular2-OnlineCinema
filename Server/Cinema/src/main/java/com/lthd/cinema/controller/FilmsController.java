@@ -39,12 +39,19 @@ public class FilmsController {
 		FilmManager.SortShowtimes();
 		ShowTimeDAO.save("CGV", FilmManager.films);
 		
-		cinema = new GalaxyParser("https://www.galaxycine.vn/");
+		/*cinema = new GalaxyParser("https://www.galaxycine.vn/");
 		
 		FilmManager.clearShowTime();
 		cinema.parse();
 		FilmManager.SortShowtimes();
-		ShowTimeDAO.save("Galaxy", FilmManager.films);
+		ShowTimeDAO.save("Galaxy", FilmManager.films);*/
+		
+		cinema = new BHDParser("http://bhdstar.vn/");
+		
+		FilmManager.clearShowTime();
+		cinema.parse();
+		FilmManager.SortShowtimes();
+		ShowTimeDAO.save("BHD", FilmManager.films);
 		
 		return "done";
 	}
