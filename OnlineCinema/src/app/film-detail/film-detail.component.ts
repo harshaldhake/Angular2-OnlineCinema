@@ -16,7 +16,7 @@ export class FilmDetailComponent implements OnInit {
   // Params
   filmId: string;
   cinemaName: string = "none";
-
+  title: string = "CHỌN RẠP PHIM";
   showtimes: ShowTime[] = [];
   trailerUrl: SafeResourceUrl;
   film: Film;
@@ -47,9 +47,11 @@ export class FilmDetailComponent implements OnInit {
   getShowTimeByCinema(cinemaIndex: number) {
     if (cinemaIndex === 1) { // Galaxy
       this.cinemaName = 'Galaxy';
+      this.title = "RẠP GALAXY";
     }
     if (cinemaIndex === 2) { // cgv
       this.cinemaName = 'CGV';
+      this.title = "RẠP CGV";
     }
     this.getShowTime(this.filmId, this.cinemaName);
   }
