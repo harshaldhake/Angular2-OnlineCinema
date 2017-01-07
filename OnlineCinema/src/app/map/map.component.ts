@@ -10,7 +10,7 @@ import {Marker} from "../_models/maker-storage";
 export class MapComponent implements OnInit {
 
   zoom: number = 17; // Zoom level
-
+  cinema: string = "CHỌN RẠP PHIM";
   markers: Marker[];
 
   private cinemaName: string = 'galaxy';
@@ -29,12 +29,15 @@ export class MapComponent implements OnInit {
         break;
       case 1 : // Galaxy
         this.cinemaName = 'galaxy';
+        this.cinema = 'RẠP GALAXY';
         break;
       case 2 : // Cgv
         this.cinemaName = 'cgv';
+        this.cinema = 'RẠP CGV';
         break;
       case 3 : // bhd
         this.cinemaName = 'bhd';
+        this.cinema = 'RẠP BHD';
         break;
     }
     this.markers = this._markerService.getMarkers(this.cinemaName);
