@@ -127,6 +127,36 @@ public class AccountController {
 
 		Response response = client.newCall(request).execute();
 		
-	    return response.message();
+		return String.valueOf(response.code());
+	}
+	
+	@Path("notification/putmessage")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
+	public String putMessage(@FormParam(value = "link") String link) throws IOException {
+		String url = "https://fcm.googleapis.com/fcm/send";
+		
+		String nofication = 
+				"{ \"notification\": {" +
+						"\"title\": \"" + "Đã nhận lời nhắn!" + "\"," +
+						"\"body\": \"" + "Chúng tôi sẽ trả lời bạn sớm nhất" + "\"," +
+						"\"icon\": \"cinema-logo.png\"," +
+						"\"click_action\" : \"" + link + "\"" +
+					"}," +
+			  		"\"to\" : \"/topics/" + TOPIC_NAME + "\"" +
+				"}";
+		
+		OkHttpClient client = new OkHttpClient();
+    	RequestBody body = RequestBody.create(JSON, nofication);
+    	Request request = new Request.Builder()
+	      .url(url)
+	      .addHeader("Content-Type", "application/json")
+	      .addHeader("Authorization", AUTHEN)
+	      .post(body)
+	      .build();
+
+		Response response = client.newCall(request).execute();
+		
+		return String.valueOf(response.code());
 	}
 }

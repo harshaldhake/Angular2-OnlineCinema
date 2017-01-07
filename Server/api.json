@@ -30,3 +30,6 @@ http://cinematest.njs.jelastic.vps-host.net/cinema/api/films/nowshowing
 
 API lấy danh sách phim sắp chiếu: GET
 http://cinematest.njs.jelastic.vps-host.net/cinema/api/films/comingsoon
+
+API put noti : POST {link}
+http://cinematest.njs.jelastic.vps-host.net/cinema/api/account/notification/putmessage 
