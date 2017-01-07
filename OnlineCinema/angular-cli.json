@@ -26,7 +26,8 @@
         "../node_modules/bootstrap/dist/js/bootstrap.min.js",
         "../src/assets/js/jquery.prettyPhoto.js",
         "../src/assets/js/jquery.isotope.min.js",
-        "../src/assets/js/wow.min.js"
+        "../src/assets/js/wow.min.js",
+        "../src/firebase-messaging-sw.js"
       ],
       "environments": {
         "source": "environments/environment.ts",

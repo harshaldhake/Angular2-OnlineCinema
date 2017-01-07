@@ -75,8 +75,11 @@ export class FilmComponent implements OnInit {
     }
   }
 
-  getTrailer(trailer: string) {
-    this.trailerUrl = this.sanitizer.bypassSecurityTrustResourceUrl(trailer);
+  private film: Film;
+
+  getTrailer(film: Film) {
+    this.film = film;
+    this.trailerUrl = this.sanitizer.bypassSecurityTrustResourceUrl(film.trailer);
   }
 
   initFB(): void {
@@ -90,10 +93,15 @@ export class FilmComponent implements OnInit {
     this.fb.init(fbParams);
   }
 
-  share() {
+  share(film: Film) {
+    this.film = film;
     let fbUiParams: FacebookUiParams = {
       method: 'share',
-      href: 'https://www.galaxycine.vn/',
+      href: 'https:' + this.film.trailer,
+      mobile_iframe: 'true',
+      caption: 'Hãy xem phim này cùng tôi bạn nhé ... ',
+      description: this.film.name,
+      picture: this.film.img
     };
     this.fb.ui(fbUiParams);
   }

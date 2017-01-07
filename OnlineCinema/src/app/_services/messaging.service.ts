@@ -14,7 +14,6 @@ export class MessagingService {
               @Inject(FirebaseApp)
               private _firebaseApp: firebase.app.App) {
     this._messaging = firebase.messaging(this._firebaseApp);
-
   }
 
   getToken() {
