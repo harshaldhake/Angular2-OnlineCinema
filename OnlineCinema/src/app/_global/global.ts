@@ -16,4 +16,7 @@ export class Global {
   public static get API_SLIDE_SHOW(): string {
     return "http://cinematest.njs.jelastic.vps-host.net/cinema/api/slideshows/";
   }
+  public static get API_REGISTER_NOTI(): string {
+    return "http://cinematest.njs.jelastic.vps-host.net/cinema/api/account/notification/subscribe";
+  }
 }

@@ -1,9 +1,8 @@
 import {Injectable} from '@angular/core';
-import {Http, Response} from "@angular/http";
+import {Http} from "@angular/http";
 import {Observable} from "rxjs";
 import {SlideShow} from "../_models/slide-show";
 import {Global} from "../_global/global";
-import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
 
 @Injectable()
 export class SlideShowService {

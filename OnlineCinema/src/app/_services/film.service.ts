@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Film} from "../_models/film";
 import {Observable} from "rxjs";
-import {Http, Response} from "@angular/http";
+import {Http} from "@angular/http";
 import 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
