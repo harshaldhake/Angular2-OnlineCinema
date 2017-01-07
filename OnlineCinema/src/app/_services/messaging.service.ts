@@ -35,7 +35,7 @@ export class MessagingService {
   }
 
   registerToken(token: string): Observable<string> {
-    let headers = new Headers({'Content-Type': 'application/json'}); // ... Set content type to JSON
+    let headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'}); // ... Set content type to JSON
     let options = new RequestOptions({headers: headers}); // Create a request option
 
     return this.http.post(Global.API_REGISTER_NOTI, token, options) // ...using post request

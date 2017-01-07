@@ -3,25 +3,30 @@ import {Film} from "../_models/film";
 import {FilmService} from "../_services/film.service";
 import {TabMenu} from "../_interfaces/tab-menu.interface";
 import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
-
+import {
+  FacebookService, FacebookInitParams,
+  FacebookUiParams
+} from 'ng2-facebook-sdk';
 @Component({
   selector: 'app-film',
   templateUrl: './film.component.html',
   styleUrls: ['./film.component.css'],
-  providers: [FilmService]
+  providers: [FilmService, FacebookService]
 })
 export class FilmComponent implements OnInit {
 
   films: Film[];
   trailerUrl: SafeResourceUrl;
 
-  constructor(private _filmService: FilmService,
+  constructor(private fb: FacebookService,
+              private _filmService: FilmService,
               private sanitizer: DomSanitizer) {
 
   }
 
   ngOnInit() {
     this.getFilmsShowing();
+    this.initFB();
   }
 
   getFilmsShowing() {
@@ -72,5 +77,24 @@ export class FilmComponent implements OnInit {
 
   getTrailer(trailer: string) {
     this.trailerUrl = this.sanitizer.bypassSecurityTrustResourceUrl(trailer);
+  }
+
+  initFB(): void {
+    let fbParams: FacebookInitParams = {
+      appId: '1650129628613117',
+      xfbml: true,
+      status: true,
+      cookie: true,
+      version: 'v2.4'
+    };
+    this.fb.init(fbParams);
+  }
+
+  share() {
+    let fbUiParams: FacebookUiParams = {
+      method: 'share',
+      href: 'https://www.galaxycine.vn/',
+    };
+    this.fb.ui(fbUiParams);
   }
 }

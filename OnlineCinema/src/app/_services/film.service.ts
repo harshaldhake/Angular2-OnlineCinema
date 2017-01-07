@@ -6,11 +6,13 @@ import 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {Global} from "../_global/global";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Injectable()
 export class FilmService {
 
-  constructor(private http: Http) {
+  constructor(private http: Http,
+              private sanitizer: DomSanitizer) {
 
   }
 

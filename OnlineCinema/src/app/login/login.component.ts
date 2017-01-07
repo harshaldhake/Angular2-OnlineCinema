@@ -2,17 +2,20 @@ import {Component, OnInit} from '@angular/core';
 import {User} from "../_models/user";
 import {AngularFire, AuthProviders} from 'angularfire2';
 import {Router} from "@angular/router";
+import {UserService} from "../_services/user.service";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [UserService]
 })
 export class LoginComponent implements OnInit {
 
   user: User;
   isLogin: boolean;
 
-  constructor(private router: Router,
+  constructor(private userService: UserService,
+              private router: Router,
               public af: AngularFire) {
     this.user = new User();
   }
@@ -26,6 +29,7 @@ export class LoginComponent implements OnInit {
         this.user.email = user.facebook.email;
         this.user.photoURL = user.facebook.photoURL;
         this.user.refreshToken = user.auth.refreshToken;
+        this.userService.login(this.user.uid);
         this.isLogin = true;
       }
       else {
@@ -42,6 +46,6 @@ export class LoginComponent implements OnInit {
 
   logout() {
     this.af.auth.logout();
-    this.router.navigate(['']);
+    this.router.navigate(['']); // Go to Home page
   }
 }

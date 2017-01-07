@@ -19,4 +19,7 @@ export class Global {
   public static get API_REGISTER_NOTI(): string {
     return "http://cinematest.njs.jelastic.vps-host.net/cinema/api/account/notification/subscribe";
   }
+  public static get API_LOGIN(): string {
+    return "http://cinematest.njs.jelastic.vps-host.net/cinema/api/account/login";
+  }
 }

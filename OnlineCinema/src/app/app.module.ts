@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, enableProdMode} from '@angular/core';
 import {routing} from './app.routes';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
@@ -17,8 +17,10 @@ import {AboutComponent} from './about/about.component';
 import {AgmCoreModule} from 'angular2-google-maps/core';
 import {AngularFireModule, AuthProviders, AuthMethods} from "angularfire2";
 import {FilmDetailComponent} from './film-detail/film-detail.component';
-import { ImageSliderComponent } from './image-slider/image-slider.component';
-import { FilmGalleryComponent } from './film-gallery/film-gallery.component';
+import {ImageSliderComponent} from './image-slider/image-slider.component';
+import {FilmGalleryComponent} from './film-gallery/film-gallery.component';
+
+enableProdMode();
 
 const firebaseConfig = {
   apiKey: "AIzaSyC65mTu6VUfkOi4B6QxYkUHqAx1KExEuD8",
@@ -53,7 +55,7 @@ const firebaseConfig = {
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA9jnjPXZBcjuzJnTfAKmpiSUKJp8G6bPI'
     }),
-    AngularFireModule.initializeApp(firebaseConfig,{
+    AngularFireModule.initializeApp(firebaseConfig, {
       provider: AuthProviders.Google,
       method: AuthMethods.Popup
     })
