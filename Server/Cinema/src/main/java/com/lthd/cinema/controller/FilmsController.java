@@ -16,6 +16,7 @@ import com.lthd.cinema.model.CGVParser;
 import com.lthd.cinema.model.FilmManager;
 import com.lthd.cinema.model.FilmParser;
 import com.lthd.cinema.model.GalaxyParser;
+import com.lthd.cinema.model.LotteParser;
 import com.lthd.cinema.model.dao.Film;
 import com.lthd.cinema.model.dao.FilmsDAO;
 import com.lthd.cinema.model.dao.ShowTimeDAO;
@@ -39,12 +40,12 @@ public class FilmsController {
 		FilmManager.SortShowtimes();
 		ShowTimeDAO.save("CGV", FilmManager.films);
 		
-		/*cinema = new GalaxyParser("https://www.galaxycine.vn/");
+		cinema = new GalaxyParser("https://www.galaxycine.vn/");
 		
 		FilmManager.clearShowTime();
 		cinema.parse();
 		FilmManager.SortShowtimes();
-		ShowTimeDAO.save("Galaxy", FilmManager.films);*/
+		ShowTimeDAO.save("Galaxy", FilmManager.films);
 		
 		cinema = new BHDParser("http://bhdstar.vn/");
 		
@@ -52,6 +53,13 @@ public class FilmsController {
 		cinema.parse();
 		FilmManager.SortShowtimes();
 		ShowTimeDAO.save("BHD", FilmManager.films);
+		
+		cinema = new LotteParser("http://lottecinemavn.com/CMSTemplates/MBMTemplate/FancyboxSchedule.aspx");
+		
+		FilmManager.clearShowTime();
+		cinema.parse();
+		FilmManager.SortShowtimes();
+		ShowTimeDAO.save("Lotte", FilmManager.films);
 		
 		return "done";
 	}

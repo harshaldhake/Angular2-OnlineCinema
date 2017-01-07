@@ -1,11 +1,14 @@
 package com.lthd.cinema.model;
 
+import java.io.UnsupportedEncodingException;
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import com.lthd.cinema.model.dao.Film;
 import com.lthd.cinema.model.dao.SlideShow;
@@ -60,13 +63,30 @@ public class FilmManager {
 			}
 	}
 	
+	private static String unicodeToAscii(String s) throws UnsupportedEncodingException {
+		s = s.replaceAll("đ", "d");
+        String s1 = Normalizer.normalize(s, Normalizer.Form.NFKD);
+        String regex = Pattern.quote("[\\p{InCombiningDiacriticalMarks}\\p{IsLm}\\p{IsSk}]+");
+        String s2 = new String(s1.replaceAll(regex, "").getBytes("ascii"), "ascii");
+
+        return s2. replaceAll("[?]", "");
+    }
+	
 	public static Film searchFilmByName(String name) {
 		for (Film film : FilmManager.films) {
-			String _name = film.name.toLowerCase();
-			name = name.toLowerCase();
+			String _name = "";
+			try {
+				_name = unicodeToAscii(film.name.toLowerCase());
+				name = unicodeToAscii(name.toLowerCase());
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+			
 			if (name.contains(_name) || _name.contains(name))
 				return film;
 			
+			_name = _name.replaceAll("\\(", "-");
+			name = name.replaceAll("\\)", "-");
 			String[] _words = _name.split("[:/-]");
 			String[] words = name.split("[:/-]");
 			for (String word : words)
