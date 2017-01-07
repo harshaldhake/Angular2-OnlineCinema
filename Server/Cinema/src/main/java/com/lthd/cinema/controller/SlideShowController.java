@@ -14,6 +14,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.bson.Document;
 
+import com.lthd.cinema.model.BHDParser;
 import com.lthd.cinema.model.CGVParser;
 import com.lthd.cinema.model.FilmManager;
 import com.lthd.cinema.model.FilmParser;
@@ -37,6 +38,9 @@ public class SlideShowController {
 		cinema.getSlideShow();
 		
 		cinema = new GalaxyParser("https://www.galaxycine.vn/");
+		cinema.getSlideShow();
+		
+		cinema = new BHDParser("http://bhdstar.vn/");
 		cinema.getSlideShow();
 		
 		SlideShowDAO.save(FilmManager.slideShows);
