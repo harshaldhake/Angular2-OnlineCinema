@@ -8,10 +8,13 @@ import {MessagingService} from "./_services/messaging.service";
   styleUrls: ['./app.component.css'],
   providers: [MessagingService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  constructor(private af: AngularFire,
-              private _msgService: MessagingService) {
-    this._msgService.getToken();
+  constructor(private _msgService: MessagingService) {
+
+  }
+
+  ngOnInit(): void {
+    this._msgService.getNewToken();
   }
 }

@@ -16,7 +16,7 @@ import {FilmGalleryComponent} from "./film-gallery/film-gallery.component";
 export const routes: Routes = [
   {path: '', component: FilmComponent},
   {path: '', redirectTo: '/film', pathMatch: 'full'},
-  {path: '#', redirectTo: '/film', pathMatch: 'full'},
+  {path: '#', redirectTo: '/**', pathMatch: 'full'},
   {path: '#', component: FilmComponent},
   {path: 'hot', component: HomeComponent},
   {path: 'home', component: FilmComponent},
