@@ -30,7 +30,7 @@ public class AccountController {
 	private final String SECRECT = "AMENIC";
 	private final long EXPIRE = 24 *60 * 60 * 1000;
 	private final String TOPIC_NAME = "cinema";
-	private final String AUTHEN = "key=AAAA9_Wwd40:APA91bHU35In2HL99_0Dm6M6PrRnHOL0WJWIs07xvx4TCEM50on6NmKYUC45Xe-yud6KlFtFtHU24sWAsuAPmuxzcl2D521n9L5d3ffl9emy0KMoYZFo02YaTXF-Oh_xBy-RrWpjkfHE3-6q4S1vOcu-Xj1XsjitoQ";
+	private final String AUTHEN = "key=AAAAQOZqd-Q:APA91bH-CMvvYGiiCbRU6yU0WAaCHri7NO_efC2I31U9oxNIns3i4kp5vNgV0-lWBtD3dtmKajlx7Y6l3SbpnjRUdOV_IzA8xrJBr_ABHfL6b_yELkt7PbSh1C4HsXtgkX4x99A11_nS";
 	public static final com.squareup.okhttp.MediaType JSON = com.squareup.okhttp.MediaType.parse("application/json");
 	
 	@Path("login")
