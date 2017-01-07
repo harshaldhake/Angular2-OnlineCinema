@@ -8,7 +8,6 @@
       embed-responsive-item trailer"
               style="height: 512px"
               [src]="trailerUrl"></iframe>
-      <!--<img class="img-responsive" src="{{film.img}}">-->
     </div>
     <div class="col-md-4">
       <div class="well">
@@ -19,13 +18,13 @@
     </div>
   </div>
   <hr>
-  <div  *ngIf="isShow" class="page-header">
+  <div *ngIf="isShow" class="page-header">
     <h3>THÔNG TIN CHI TIẾT LỊCH CHIẾU </h3>
     <div class="btn-group">
       <button type="button"
               class="btn btn-primary dropdown-toggle"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        CHỌN RẠP PHIM <span class="caret"></span>
+        {{title}} <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
         <li><a (click)="getShowTimeByCinema(1)">RẠP GALAXY</a></li>

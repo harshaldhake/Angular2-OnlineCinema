@@ -14,6 +14,7 @@ export class MapComponent implements OnInit {
   markers: Marker[];
 
   private cinemaName: string = 'galaxy';
+
   constructor(private _markerService: MarkerService) {
     this.markers = this._markerService.getMarkers(this.cinemaName);
   }
@@ -24,8 +25,10 @@ export class MapComponent implements OnInit {
   getMarkers(id: number) {
     switch (id) {
       case -1 : // Gần nhất
+        this.cinema = 'TÌM RẠP GẦN NHẤT';
         break;
       case 0 : // Tất cả
+        this.cinema = 'XEM TẤT CẢ';
         break;
       case 1 : // Galaxy
         this.cinemaName = 'galaxy';
@@ -38,6 +41,10 @@ export class MapComponent implements OnInit {
       case 3 : // bhd
         this.cinemaName = 'bhd';
         this.cinema = 'RẠP BHD';
+        break;
+      case 4 : // lotte
+        this.cinemaName = 'lotte';
+        this.cinema = 'RẠP LOTTE';
         break;
     }
     this.markers = this._markerService.getMarkers(this.cinemaName);

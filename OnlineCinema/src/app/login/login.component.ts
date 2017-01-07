@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from "../_models/user";
 import {AngularFire, AuthProviders} from 'angularfire2';
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,7 +12,8 @@ export class LoginComponent implements OnInit {
   user: User;
   isLogin: boolean;
 
-  constructor(public af: AngularFire) {
+  constructor(private router: Router,
+              public af: AngularFire) {
     this.user = new User();
   }
 
@@ -40,5 +42,6 @@ export class LoginComponent implements OnInit {
 
   logout() {
     this.af.auth.logout();
+    this.router.navigate(['']);
   }
 }

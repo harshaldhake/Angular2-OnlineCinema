@@ -15,15 +15,27 @@ export class MarkerStorage {
 
   private galaxyMarkers: Marker[] = [
     {
-      name: "Galaxy Tân Bình",
-      lat: 10.790238,
-      lng: 106.640733,
+      name: "GALAXY NGUYỄN DU",
+      lat: 10.7732941,
+      lng: 106.690802,
       draggable: false
     },
     {
-      name: "Galaxy Nguyễn Du",
-      lat: 10.773226,
-      lng: 106.692945,
+      name: "GALAXY TÂN BÌNH",
+      lat: 10.7902587,
+      lng: 106.6385232,
+      draggable: false
+    },
+    {
+      name: "GALAXY KINH DƯƠNG VƯƠNG",
+      lat: 10.7500903,
+      lng: 106.6259716,
+      draggable: false
+    },
+    {
+      name: "GALAXY QUANG TRUNG",
+      lat: 10.8347421,
+      lng: 106.6600354,
       draggable: false
     }
   ];
@@ -163,6 +175,51 @@ export class MarkerStorage {
       draggable: false
     }
   ];
+  private lotteMarkers: Marker[] = [
+    {
+      name: "Lotte Cantavil",
+      lat: 10.8017625,
+      lng: 106.7446821,
+      draggable: false
+    },
+    {
+      name: "Lotte Cinema Cộng Hoà",
+      lat: 10.801236,
+      lng: 106.6505638,
+      draggable: false
+    },
+    {
+      name: "Lotteria Diamond",
+      lat: 10.7813623,
+      lng: 106.6964442,
+      draggable: false
+    }, {
+      name: "Lotte Cinema Go Vap",
+      lat: 10.8383785,
+      lng: 106.6687854,
+      draggable: false
+    }, {
+      name: "Lotte Cinema Nam Sai Gon",
+      lat: 10.7409423,
+      lng: 106.700126,
+      draggable: false
+    }, {
+      name: "Lotte Cinema Nowzone",
+      lat: 10.764032,
+      lng: 106.6810413,
+      draggable: false
+    }, {
+      name: "Lotte Cinema Phú Thọ",
+      lat: 10.7632651,
+      lng: 106.6545911,
+      draggable: false
+    }, {
+      name: "Lotte Cinema Thủ Đức",
+      lat: 10.8712548,
+      lng: 106.7670491,
+      draggable: false
+    }
+  ];
 
   public load() {
     if (localStorage.getItem('markers_galaxy') === null ||
@@ -176,6 +233,10 @@ export class MarkerStorage {
     if (localStorage.getItem('markers_bhd') === null ||
       localStorage.getItem('markers_bhd') === undefined) {
       localStorage.setItem('markers_bhd', JSON.stringify(this.bhdMarkers));
+    }
+    if (localStorage.getItem('markers_lotte') === null ||
+      localStorage.getItem('markers_lotte') === undefined) {
+      localStorage.setItem('markers_lotte', JSON.stringify(this.lotteMarkers));
     }
   }
 }

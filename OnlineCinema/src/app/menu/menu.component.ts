@@ -10,14 +10,14 @@ export class MenuComponent implements OnInit {
 
   navMenus: NavigationMenu[] = [
     {
-      title: "KHUYẾN MÃI",
+      title: "DANH SÁCH PHIM",
       active: true,
-      link: ""
+      link: "/film"
     },
     {
-      title: "DANH SÁCH PHIM",
+      title: "KHUYẾN MÃI",
       active: false,
-      link: "/film"
+      link: "/hot"
     },
     {
       title: "BẢN ĐỒ",
@@ -36,7 +36,8 @@ export class MenuComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
