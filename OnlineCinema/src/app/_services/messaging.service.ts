@@ -2,7 +2,6 @@ import {Injectable, Inject} from '@angular/core';
 import * as firebase from 'firebase';
 import {Http, Response, Headers, RequestOptions} from "@angular/http";
 import {Global} from "../_global/global";
-import {Observable} from "rxjs";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {FirebaseApp} from "angularfire2";
@@ -19,15 +18,6 @@ export class MessagingService {
 
     this.currentToken = JSON.parse(localStorage.getItem('firebase_token'));
     this._messaging = firebase.messaging(this._firebaseApp);
-/*
-    this._messaging.setBackgroundMessageHandler(() => {
-      let notificationTitle = 'Background Message Title';
-      let notificationOptions = {
-        body: 'Background Message body.',
-        icon: '/firebase-logo.png'
-      };
-      // self.registration.showNotification(notificationTitle, notificationOptions);
-    });*/
   }
 
   getNewToken() {
@@ -51,6 +41,14 @@ export class MessagingService {
           this._messaging.getToken().then(
             refreshedToken => {
               this.currentToken = refreshedToken;
+              this.saveToken(this.currentToken);
+              this.sendTokenToServer(this.currentToken).then(
+                token => {
+                  console.log("res:" + token)
+                },
+                error => {
+                  console.log(error)
+                });
             }
           ).catch(err => {
             console.error('Msg Token error:', err);
@@ -59,14 +57,16 @@ export class MessagingService {
       }
       else {
         this.currentToken = token;
+        this.saveToken(this.currentToken);
+        this.sendTokenToServer(this.currentToken).then(
+          token => {
+            console.log("res:" + token)
+          },
+          error => {
+            console.log(error)
+          });
       }
-      this.saveToken(token);
-      this.sendTokenToServer(token).subscribe(
-        (res: string) => {
-          console.log("Register:" + res);
-        }
-      );
-    })
+    });
   }
 
   private saveToken(token: string) {
@@ -74,15 +74,42 @@ export class MessagingService {
     localStorage.setItem('firebase_token', JSON.stringify(this.currentToken));
   }
 
-  private sendTokenToServer(token: string): Observable<string> {
+  private sendTokenToServer(token: string): Promise<string> {
     let headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
     let options = new RequestOptions({headers: headers});
-    let body = "token:" + token;
-    return this.http
-      .post(Global.API_REGISTER_NOTI, body, options)
-      .map((res: Response) => {
-        res.json();
-      })
-      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    let body = 'token=' + token;
+    return this.http.post(Global.API_REGISTER_NOTI, body, options)
+      .toPromise()
+      .then(this.extractData)
+      .catch(this.handleError);
+  }
+
+  private extractData(res: Response) {
+    return res || {};
+  }
+
+  private handleError(error: Response | any) {
+    // In a real world app, we might use a remote logging infrastructure
+    let errMsg: string;
+    if (error instanceof Response) {
+      const body = error.json() || '';
+      const err = body.error || JSON.stringify(body);
+      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+    } else {
+      errMsg = error.message ? error.message : error.toString();
+    }
+    return Promise.reject(errMsg);
+  }
+
+  sendMessage() {
+    let headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
+    let options = new RequestOptions({headers: headers});
+    let title = 'Online Cinema';
+    let content = 'We will reply as soon as possible!';
+    let body = 'token=&title=' + title + '&content=' + content + '&link=https://github.com/nphau';
+    return this.http.post(Global.API_REGISTER_PUT_NOTI, body, options)
+      .toPromise()
+      .then(this.extractData)
+      .catch(this.handleError);
   }
 }
