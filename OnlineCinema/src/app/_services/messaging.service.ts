@@ -1,9 +1,11 @@
 import {Injectable, Inject} from '@angular/core';
 import * as firebase from 'firebase';
-import {FirebaseApp} from "angularfire2";
 import {Http, Response, Headers, RequestOptions} from "@angular/http";
 import {Global} from "../_global/global";
 import {Observable} from "rxjs";
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import {FirebaseApp} from "angularfire2";
 
 @Injectable()
 export class MessagingService {
@@ -17,6 +19,15 @@ export class MessagingService {
 
     this.currentToken = JSON.parse(localStorage.getItem('firebase_token'));
     this._messaging = firebase.messaging(this._firebaseApp);
+/*
+    this._messaging.setBackgroundMessageHandler(() => {
+      let notificationTitle = 'Background Message Title';
+      let notificationOptions = {
+        body: 'Background Message body.',
+        icon: '/firebase-logo.png'
+      };
+      // self.registration.showNotification(notificationTitle, notificationOptions);
+    });*/
   }
 
   getNewToken() {
@@ -39,8 +50,7 @@ export class MessagingService {
         this._messaging.deleteToken(token).then(() => {
           this._messaging.getToken().then(
             refreshedToken => {
-              this.saveToken(refreshedToken);
-              this.registerToken(refreshedToken);
+              this.currentToken = refreshedToken;
             }
           ).catch(err => {
             console.error('Msg Token error:', err);
@@ -48,9 +58,14 @@ export class MessagingService {
         });
       }
       else {
-        this.saveToken(token);
-        this.registerToken(token);
+        this.currentToken = token;
       }
+      this.saveToken(token);
+      this.sendTokenToServer(token).subscribe(
+        (res: string) => {
+          console.log("Register:" + res);
+        }
+      );
     })
   }
 
@@ -59,16 +74,15 @@ export class MessagingService {
     localStorage.setItem('firebase_token', JSON.stringify(this.currentToken));
   }
 
-  private registerToken(token: string): Observable<string> {
-
-    let headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'}); // ... Set content type to JSON
-    let options = new RequestOptions({headers: headers}); // Create a request option
-
-    let body = 'token:' + token;
-    return this.http.post(Global.API_REGISTER_NOTI, body, options) // ...using post request
+  private sendTokenToServer(token: string): Observable<string> {
+    let headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
+    let options = new RequestOptions({headers: headers});
+    let body = "token:" + token;
+    return this.http
+      .post(Global.API_REGISTER_NOTI, body, options)
       .map((res: Response) => {
-        console.log("Register:" + res.json());
-      }) // ...and calling .json() on the response to return data
-      .catch((error: any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
+        res.json();
+      })
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 }

@@ -7,12 +7,12 @@ import {Component, OnInit} from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  cinemas: string[] = ['Galaxy', 'CGV'];
+  cinemas: string[] = ['Galaxy', 'CGV', 'BHD', 'Lotte'];
 
-  constructor() { }
-
-  ngOnInit() {
-    // window.open('http://www.stackoverflow.com', '_blank', 'width=500, height=400')
+  constructor() {
   }
 
+  ngOnInit() {
+
+  }
 }

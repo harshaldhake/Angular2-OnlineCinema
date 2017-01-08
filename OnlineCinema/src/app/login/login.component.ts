@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.af.auth.subscribe(user => {
-      console.log(user);
       if (user) {
         this.user.uid = user.facebook.uid;
         this.user.displayName = user.facebook.displayName;

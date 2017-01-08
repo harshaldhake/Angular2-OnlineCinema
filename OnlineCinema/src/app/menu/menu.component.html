@@ -53,6 +53,17 @@
                   CGV CINEMA
                 </a>
               </li>
+              <li>
+                <a routerLink="cinema/BHD" routerLinkActive="active">
+                  BHD CINEMA
+                </a>
+              </li>
+              <li>
+                <a routerLink="cinema/Lotte" routerLinkActive="active">
+                  LOTTE CINEMA
+                </a>
+              </li>
+
             </ul>
           </li>
           <li *ngFor="let navMenu of navMenus; let idx = index" [class.active]="navMenu.active" (click)="clicked(idx)">

@@ -17,4 +17,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this._msgService.getNewToken();
   }
+
+
 }

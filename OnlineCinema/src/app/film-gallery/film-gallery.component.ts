@@ -36,6 +36,14 @@ export class FilmGalleryComponent implements OnInit {
         this.title = 'RẠP GALAXY CINEMA';
         this.url = "https://www.galaxycine.vn/rap-gia-ve";
       }
+      if (this.cinema === 'BHD') {
+        this.title = 'RẠP BHD CINEMA';
+        this.url = "http://bhdstar.vn/";
+      }
+      if (this.cinema === 'Lotte') {
+        this.title = 'RẠP LOTTE CINEMA';
+        this.url = "http://lottecinemavn.com/";
+      }
       this.getFilms();
     });
   }
