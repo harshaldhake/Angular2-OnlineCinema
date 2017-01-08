@@ -29,7 +29,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 public class AccountController {
 	private final String SECRECT = "AMENIC";
 	private final long EXPIRE = 24 *60 * 60 * 1000;
-	private final String TOPIC_NAME = "cinema";
+	private final String TOPIC_NAME = "cinemanotification";
 	private final String AUTHEN = "key=AAAAQOZqd-Q:APA91bH-CMvvYGiiCbRU6yU0WAaCHri7NO_efC2I31U9oxNIns3i4kp5vNgV0-lWBtD3dtmKajlx7Y6l3SbpnjRUdOV_IzA8xrJBr_ABHfL6b_yELkt7PbSh1C4HsXtgkX4x99A11_nS";
 	public static final com.squareup.okhttp.MediaType JSON = com.squareup.okhttp.MediaType.parse("application/json");
 	
@@ -103,43 +103,14 @@ public class AccountController {
 	@Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
 	public String put(@FormParam(value = "title") String title, 
 			@FormParam(value = "content") String content,
-			@FormParam(value = "link") String link) throws IOException {
+			@FormParam(value = "link") String link,
+			@FormParam(value = "token") String token) throws IOException {
 		String url = "https://fcm.googleapis.com/fcm/send";
 		
 		String nofication = 
 				"{ \"notification\": {" +
 						"\"title\": \"" + title + "\"," +
 						"\"body\": \"" + content + "\"," +
-						"\"icon\": \"cinema-logo.png\"," +
-						"\"click_action\" : \"" + link + "\"" +
-					"}," +
-			  		"\"to\" : \"/topics/" + TOPIC_NAME + "\"" +
-				"}";
-		
-		OkHttpClient client = new OkHttpClient();
-    	RequestBody body = RequestBody.create(JSON, nofication);
-    	Request request = new Request.Builder()
-	      .url(url)
-	      .addHeader("Content-Type", "application/json")
-	      .addHeader("Authorization", AUTHEN)
-	      .post(body)
-	      .build();
-
-		Response response = client.newCall(request).execute();
-		
-		return String.valueOf(response.code());
-	}
-	
-	@Path("notification/putmessage")
-	@POST
-	@Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
-	public String putMessage(@FormParam(value = "link") String link) throws IOException {
-		String url = "https://fcm.googleapis.com/fcm/send";
-		
-		String nofication = 
-				"{ \"notification\": {" +
-						"\"title\": \"" + "Đã nhận lời nhắn!" + "\"," +
-						"\"body\": \"" + "Chúng tôi sẽ trả lời bạn sớm nhất" + "\"," +
 						"\"icon\": \"cinema-logo.png\"," +
 						"\"click_action\" : \"" + link + "\"" +
 					"}," +
